@@ -1,0 +1,133 @@
+﻿[
+  {
+    "ingredientPattern": "F_,TH",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:feather",
+        "quantity": 8
+      },
+      "T": {
+        "type": "item",
+        "code": "game:treeseed-pine",
+        "quantity": 2
+      },
+      "H": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-lavender-dried",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "walkspeed_kit_1",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-walkspeed-1"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-rusty",
+        "quantity": 1
+      },
+      "H": {
+        "type": "block",
+        "code": "game:glacierice",
+        "quantity": 4
+      },
+      "M": {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-*",
+        "allowedVariants": [ "lobster-dried", "witchhat-dried", "beardedtooth-dried" ],
+        "quantity": 2
+      },
+      "L": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-leek-dried",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "walkspeed_kit_2",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-walkspeed-2"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      "H": {
+        "type": "item",
+        "code": "bricklayers:powdered-leadoxide",
+        "quantity": 2
+      },
+      "M": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-sage-dried",
+        "quantity": 2
+      },
+      "L": {
+        "type": "item",
+        "code": "game:papyrusroot",
+        "quantity": 4
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "walkspeed_kit_3_bl",
+    "dependsOn": [ { "modid": "bricklayers" } ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-walkspeed-3"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      "H": {
+        "type": "item",
+        "code": "game:crushed-leadoxide",
+        "quantity": 2
+      },
+      "M": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-sage-dried",
+        "quantity": 2
+      },
+      "L": {
+        "type": "item",
+        "code": "game:papyrusroot",
+        "quantity": 4
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "walkspeed_kit_3_no_bl",
+    "dependsOn": [
+      {
+        "modid": "bricklayers",
+        "invert": true
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-walkspeed-3"
+    }
+  }
+]

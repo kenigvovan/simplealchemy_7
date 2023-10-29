@@ -1,0 +1,39 @@
+﻿[
+  {
+    "code": "waterpotionbased",
+    "minTemperature": 500,
+    "maxTemperature": 700,
+    "preparationTicks": 20,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "waterportion",
+        "litres": 2
+      },
+      {
+        "type": "item",
+        "code": "fruit-*",
+        "allowedVariants": [ "peach", "redapple", "pear" ],
+        "quantity": 4
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-*",
+        "allowedVariants": [ "celandine-dried", "liquorice-dried" ],
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-*",
+        "allowedVariants": [ "earthball-dried", "dryadsaddle-dried", "greencrackedrussula-dried" ],
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:waterpotionbased",
+      "litres": 1
+    }
+  }
+]

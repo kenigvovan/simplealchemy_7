@@ -1,0 +1,122 @@
+﻿[
+  {
+    "ingredientPattern": "KF",
+    "ingredients": {
+      "F": {
+        "type": "block",
+        "code": "game:mushroom-*-normal",
+        "name": "mushroom",
+        "allowedVariants": [
+          "almondmushroom",
+          "bitterbolete",
+          "paddystraw",
+          "chickenofthewoods",
+          "pinkbonnet",
+          "tinderhoof",
+          "whiteoyster",
+          "funeralbell",
+          "deerear",
+          "livermushroom",
+          "fieldmushroom",
+          "deathcap",
+          "devilstooth",
+          "devilbolete",
+          "elfinsaddle",
+          "golddropmilkcap",
+          "indigomilkcap",
+          "jackolantern",
+          "orangeoakbolete",
+          "puffball",
+          "redwinecap",
+          "saffronmilkcap",
+          "lobster",
+          "witchhat",
+          "beardedtooth",
+          "blacktrumpet",
+          "chanterelle",
+          "flyagaric",
+          "reishi",
+          "violetwebcap",
+          "commonmorel",
+          "shiitake",
+          "pinkoyster",
+          "kingbolete",
+          "earthball",
+          "dryadsaddle",
+          "greencrackedrussula"
+        ]
+      },
+      "K": {
+        "type": "item",
+        "code": "game:shears-*",
+        "isTool": true
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:mushroomingredient-{mushroom}-raw"
+    }
+  },
+  {
+    "ingredientPattern": "KF",
+    "ingredients": {
+      "F": {
+        "type": "block",
+        "code": "game:mushroom-*-normal-north",
+        "name": "mushroom",
+        "allowedVariants": [
+          "almondmushroom",
+          "bitterbolete",
+          "paddystraw",
+          "chickenofthewoods",
+          "pinkbonnet",
+          "tinderhoof",
+          "whiteoyster",
+          "funeralbell",
+          "deerear",
+          "livermushroom",
+          "fieldmushroom",
+          "deathcap",
+          "devilstooth",
+          "devilbolete",
+          "elfinsaddle",
+          "golddropmilkcap",
+          "indigomilkcap",
+          "jackolantern",
+          "orangeoakbolete",
+          "puffball",
+          "redwinecap",
+          "saffronmilkcap",
+          "lobster",
+          "witchhat",
+          "beardedtooth",
+          "blacktrumpet",
+          "chanterelle",
+          "flyagaric",
+          "reishi",
+          "violetwebcap",
+          "commonmorel",
+          "shiitake",
+          "pinkoyster",
+          "kingbolete",
+          "earthball",
+          "dryadsaddle",
+          "greencrackedrussula"
+        ]
+      },
+      "K": {
+        "type": "item",
+        "code": "game:shears-*",
+        "isTool": true
+      }
+    },
+    "width": 2,
+    "height": 1,
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:mushroomingredient-{mushroom}-raw"
+    }
+  }
+]

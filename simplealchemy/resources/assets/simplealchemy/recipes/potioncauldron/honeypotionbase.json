@@ -1,0 +1,39 @@
+﻿[
+  {
+    "code": "honeypotionbased",
+    "minTemperature": 400,
+    "maxTemperature": 800,
+    "preparationTicks": 25,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "honeyportion",
+        "litres": 2
+      },
+      {
+        "type": "item",
+        "code": "game:vegetable-*",
+        "allowedVariants": [ "onion", "carrot" ],
+        "quantity": 4
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-*",
+        "allowedVariants": [ "saffron-dried", "stingingnettle-dried" ],
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-*",
+        "allowedVariants": [ "blacktrumpet-dried", "chanterelle-dried", "flyagaric-dried" ],
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:honeypotionbased",
+      "litres": 1
+    }
+  }
+]

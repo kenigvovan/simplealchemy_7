@@ -1,0 +1,114 @@
+﻿[
+  {
+    "code": "miningspeed-weak",
+    "minTemperature": 900,
+    "maxTemperature": 1200,
+    "preparationTicks": 30,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:waterpotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:charcoal",
+        "quantity": 3
+      },
+      {
+        "type": "item",
+        "code": "game:metalbit-copper",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-burdock-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-miningspeed-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "miningspeed-medium",
+    "minTemperature": 950,
+    "maxTemperature": 1100,
+    "preparationTicks": 50,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-miningspeed-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-rusty",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:feather",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:fat",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-minerslettuce-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-miningspeed-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "miningspeed-strong",
+    "minTemperature": 950,
+    "maxTemperature": 1100,
+    "preparationTicks": 70,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-miningspeed-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-ilmenite",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-dill-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:salt",
+        "quantity": 8
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-miningspeed-strong",
+      "litres": 1
+    }
+  }
+]

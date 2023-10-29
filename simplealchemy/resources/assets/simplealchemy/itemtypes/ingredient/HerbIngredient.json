@@ -1,0 +1,158 @@
+﻿{
+  "code": "herbingredient",
+  "variantgroups": [
+    {
+      "code": "flower",
+      "states": [
+        "catmint",
+        "forgetmenot",
+        "edelweiss",
+        "heather",
+        "horsetail",
+        "orangemallow",
+        "wilddaisy",
+        "westerngorse",
+        "cowparsley",
+        "californiapoppy",
+        "lilyofthevalley",
+        "lupine-blue",
+        "lupine-orange",
+        "lupine-purple",
+        "lupine-red",
+        "lupine-white",
+        "woad",
+        "cornflower",
+        "basil",
+        "bearleek",
+        "blackpepper",
+        "celery",
+        "chamomile",
+        "cilantro",
+        "dill",
+        "dock",
+        "lavender",
+        "marjoram",
+        "marshmallow",
+        "mint",
+        "mustard",
+        "rosemary",
+        "saffron",
+        "sage",
+        "sedge",
+        "stingingnettle",
+        "stjohnswort",
+        "thyme",
+        "minerslettuce",
+        "mugwort",
+        "burdock",
+        "poisonoak",
+        "holly",
+        "chicory",
+        "marigold",
+        "inula",
+        "celandine",
+        "leek",
+        "plantain",
+        "saltwort",
+        "yarrow",
+        "liquorice"
+      ]
+    },
+    {
+      "code": "stage",
+      "states": [ "raw", "dried" ]
+    }
+  ],
+  "attributes": {
+    "meathookable": true,
+    "meatHookTransform": {
+      "translation": {
+        "x": 0.01,
+        "y": 0.5,
+        "z": 0
+      },
+      "rotation": {
+        "x": 102,
+        "y": 0,
+        "z": 56
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.5
+      },
+      "scale": 0.4
+    }
+  },
+  "creativeinventory": {
+    "items": [ "*" ],
+    "simplealchemy": [ "*" ]
+  },
+  "maxstacksize": 64,
+  "transitionablePropsByType": {
+    "*-raw": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 480 },
+        "transitionHours": { "avg": 86 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 1
+      },
+      {
+        "type": "Dry",
+        "freshHours": { "avg": 6 },
+        "transitionHours": { "avg": 104 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "simplealchemy:herbingredient-{flower}-dried"
+        },
+        "transitionRatio": 1
+      }
+    ]
+  },
+  "shapeByType": {
+    "*": { "base": "simplealchemy:item/herb-bundle" }
+  },
+  "guiTransform": {
+    "translation": {
+      "x": 3,
+      "y": 0,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0,
+      "z": 0.5
+    },
+    "rotation": {
+      "x": 90,
+      "y": 154,
+      "z": -2
+    },
+    "scale": 3
+  },
+  "groundTransform": {
+    "origin": {
+      "x": 0.5,
+      "y": 0,
+      "z": 0.5
+    },
+    "scale": 1
+  },
+  "fpHandTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0.24,
+      "z": 0.3
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.1,
+      "z": 0.5
+    },
+    "scale": 2
+  }
+}

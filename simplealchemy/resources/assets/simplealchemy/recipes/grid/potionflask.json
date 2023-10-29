@@ -1,0 +1,76 @@
+[	
+	{
+		ingredientPattern: "_Q_,Q_Q,_Q_",
+		ingredients: {
+			"Q": { type: "item", code: "game:ore-quartz" }
+		},
+		width: 3,
+		height: 3,
+		output: { type: "block", code: "simplealchemy:potionflask-round-quartz", quantity: 1  }
+	},
+	{
+		ingredientPattern: "_Q_,Q_Q,_Q_",
+		ingredients: {
+			"Q": { type: "item", code: "game:rosequartz" }
+		},
+		width: 3,
+		height: 3,
+		output: {
+			"type": "block",
+			"code": "simplealchemy:potionflask-round-pink",
+			"quantity": 1
+		}
+	},
+	{
+		ingredientPattern: "_Q_,Q_Q,_Q_",
+		ingredients: {
+			"Q": { type: "item", code: "game:clearquartz" }
+		},
+		width: 3,
+		height: 3,
+		output: {
+			"type": "block",
+			"code": "simplealchemy:potionflask-round-quartz",
+			"quantity": 1
+		}
+	},
+	{
+		ingredientPattern: "_Q_,Q_Q,_Q_",
+		ingredients: {
+			"Q": { type: "item", code: "game:ore-olivine" }
+		},
+		width: 3,
+		height: 3,
+		output: {
+			"type": "block",
+			"code": "simplealchemy:potionflask-round-green",
+			"quantity": 1
+		}
+	},
+	{
+		ingredientPattern: "_Q_,Q_Q,_Q_",
+		ingredients: {
+			"Q": { type: "item", code: "game:amethyst" }
+		},
+		width: 3,
+		height: 3,
+		output: {
+			"type": "block",
+			"code": "simplealchemy:potionflask-round-violet",
+			"quantity": 1
+		}
+	},
+	{
+		ingredientPattern: "_Q_,Q_Q,_Q_",
+		ingredients: {
+			"Q": { type: "item", code: "game:smokyquartz" }
+		},
+		width: 3,
+		height: 3,
+		output: {
+			"type": "block",
+			"code": "simplealchemy:potionflask-round-smoky",
+			"quantity": 1
+		}
+	}
+]

@@ -1,0 +1,21 @@
+﻿[
+  {
+    "op": "replace",
+    "path": "/transitionablePropsByType",
+    "value": {
+      "*": [
+        {
+          "type": "Perish",
+          "freshHours": { "avg": 240 },
+          "transitionHours": { "avg": 12 },
+          "transitionedStack": {
+            "type": "item",
+            "code": "game:rot"
+          },
+          "transitionRatio": 0.25
+        }
+      ]
+    },
+    "file": "wildcraft:itemtypes/food/herbs.json"
+  }
+]

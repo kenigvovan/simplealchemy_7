@@ -1,0 +1,30 @@
+[	
+	{
+		ingredientPattern: "LQQ,CBC,___",
+		ingredients: {
+			"B": {
+				"type": "item",
+				"code": "game:book-normal-*"
+			},
+			"C": {
+				"type": "item",
+				"code": "game:charcoal"
+			},
+			"Q": {
+				"type": "item",
+				"code": "game:clearquartz"
+			},
+			"L": {
+				"type": "item",
+				"code": "game:candle"
+			}
+		},
+		width: 3,
+		height: 3,
+		output: {
+			"type": "item",
+			"code": "simplealchemy:alchemyrecipesbook",
+			"quantity": 1
+		}
+	}
+]

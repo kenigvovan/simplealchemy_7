@@ -1,0 +1,14 @@
+{
+  "type": "code",
+  "modid": "simplealchemy",
+  "name": "simplealchemy",
+  "author": "KenigVovan",
+  "description": "Potion making using apparatus from lavoisier mod.",
+  "version": "2.2.10",
+  "side": "universal",
+  "dependencies": {
+    "game": "",
+    "effectshud": "",
+    "wildcraft": ""
+  }
+}

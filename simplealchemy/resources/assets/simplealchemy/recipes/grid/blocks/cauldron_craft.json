@@ -1,0 +1,21 @@
+[
+	{
+		"ingredientPattern": "P_P,P_P,PPP",
+		"ingredients": {
+			"P": {
+				"type": "item",
+				"code": "game:metalplate-*",
+				"name": "metal",
+				"allowedVariants": [ "copper", "tinbronze", "blackbronze", "iron", "meteoriciron", "steel" ],
+				"quantity": 1
+			}
+		},
+		"width": 3,
+		"height": 3,
+		"name": "cauldron",
+		"output": {
+			"type": "block",
+			"code": "simplealchemy:cauldron-{metal}"
+		}
+	}
+]

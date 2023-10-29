@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33815.320
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CakeBuild", "simplealchemy\CakeBuild\CakeBuild.csproj", "{AC4F4219-B4F7-4001-B7B3-08C7FDD3605E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "simplealchemy", "simplealchemy\simplealchemy\simplealchemy.csproj", "{8C7641EC-8698-4CEB-A7C5-D146D0D4EC60}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AC4F4219-B4F7-4001-B7B3-08C7FDD3605E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4F4219-B4F7-4001-B7B3-08C7FDD3605E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4F4219-B4F7-4001-B7B3-08C7FDD3605E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4F4219-B4F7-4001-B7B3-08C7FDD3605E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8C7641EC-8698-4CEB-A7C5-D146D0D4EC60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8C7641EC-8698-4CEB-A7C5-D146D0D4EC60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8C7641EC-8698-4CEB-A7C5-D146D0D4EC60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8C7641EC-8698-4CEB-A7C5-D146D0D4EC60}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F917546F-1925-4039-A1A7-AB89DB58DB75}
+	EndGlobalSection
+EndGlobal

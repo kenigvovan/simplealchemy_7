@@ -1,0 +1,40 @@
+﻿[
+  {
+    "code": "spiritpotionbased",
+    "minTemperature": 900,
+    "maxTemperature": 1200,
+    "preparationTicks": 30,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "alcoholportion",
+        "litres": 2,
+        "quantity": 200,
+      },
+      {
+        "type": "item",
+        "code": "game:flour-*",
+        "allowedVariants": [ "rye", "rice" ],
+        "quantity": 4
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-*",
+        "allowedVariants": [ "sage-dried", "marshmallow-dried" ],
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-*",
+        "allowedVariants": [ "shiitake-dried", "pinkoyster-dried", "kingbolete-dried" ],
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:spiritpotionbased",
+      "litres": 1
+    }
+  }
+]

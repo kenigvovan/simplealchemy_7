@@ -1,0 +1,165 @@
+﻿[
+  {
+    "code": "walkspeed-weak",
+    "minTemperature": 300,
+    "maxTemperature": 900,
+    "preparationTicks": 30,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:honeypotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:feather",
+        "quantity": 8
+      },
+      {
+        "type": "item",
+        "code": "game:treeseed-pine",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-lavender-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkspeed-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "walkspeed-medium",
+    "minTemperature": 300,
+    "maxTemperature": 800,
+    "preparationTicks": 50,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-walkspeed-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-rusty",
+        "quantity": 1
+      },
+      {
+        "type": "block",
+        "code": "game:glacierice",
+        "quantity": 4
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-*",
+        "allowedVariants": [ "lobster-dried", "witchhat-dried", "beardedtooth-dried" ],
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-leek-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkspeed-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "walkspeed-strong",
+    "minTemperature": 300,
+    "maxTemperature": 650,
+    "preparationTicks": 70,
+    "minCauldronTier": 3,
+    "dependsOn": [
+      {
+        "modid": "em",
+        "invert": true
+      }
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-walkspeed-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-leadoxide",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-sage-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:papyrusroot",
+        "quantity": 4
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkspeed-strong",
+      "litres": 1
+    }
+  },
+  {
+    "code": "walkspeed-strong",
+    "minTemperature": 300,
+    "maxTemperature": 650,
+    "preparationTicks": 70,
+    "minCauldronTier": 3,
+    "dependsOn": [
+      {
+        "modid": "em"
+      }
+    ],
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-walkspeed-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "em:crushed-metal-lead",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-sage-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:papyrusroot",
+        "quantity": 4
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkspeed-strong",
+      "litres": 1
+    }
+  }
+]

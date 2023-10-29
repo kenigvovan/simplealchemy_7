@@ -1,0 +1,41 @@
+﻿{
+  "code": "potionkit_three",
+  "creativeinventory": {
+    "general": [ "*" ],
+    "items": [ "*" ],
+    "simplealchemy": [ "*" ]
+  },
+  "variantgroups": [
+    {
+      "code": "kit",
+      "states": [
+        "meleestrength",
+        "regeneration",
+        "miningspeed",
+        "walkspeed",
+        "temporalstabilityrestore"
+      ]
+    },
+    {
+      "code": "stage",
+      "states": [ "1", "2", "3" ]
+    }
+  ],
+  "attributes": {
+  },
+  "maxstacksize": 64,
+  "texture": { "base": "simplealchemy:item/kits/{kit}_{stage}" },
+  "fpHandTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 180,
+      "y": 90,
+      "z": 13
+    }
+  },
+  "materialDensity": 450
+}

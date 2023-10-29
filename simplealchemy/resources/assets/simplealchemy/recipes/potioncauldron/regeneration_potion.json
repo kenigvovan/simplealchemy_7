@@ -1,0 +1,152 @@
+﻿[
+  {
+    "code": "regeneration-weak",
+    "minTemperature": 300,
+    "maxTemperature": 1000,
+    "preparationTicks": 30,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:honeypotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:metalbit-*",
+        "allowedVariants": [ "silver"],
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:beeswax",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-holly-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-regeneration-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "regeneration-weak",
+    "minTemperature": 300,
+    "maxTemperature": 1000,
+    "preparationTicks": 30,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:honeypotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:nugget-*",
+        "allowedVariants": ["nativesilver" ],
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:beeswax",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-holly-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-regeneration-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "regeneration-medium",
+    "minTemperature": 900,
+    "maxTemperature": 1200,
+    "preparationTicks": 50,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-regeneration-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-rusty",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:fruit-pineapple",
+        "quantity": 4
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-*",
+        "allowedVariants": [ "violetwebcap-dried", "reishi-dried", "commonmorel-driedl" ],
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:cheese-*",
+        "allowedVariants": [ "cheddar-1slice", "blue-1slice" ],
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-regeneration-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "regeneration-strong",
+    "minTemperature": 1150,
+    "maxTemperature": 1300,
+    "preparationTicks": 70,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-regeneration-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-leadoxide",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:fat",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-mint-dried",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-regeneration-strong",
+      "litres": 1
+    }
+  }
+]

@@ -1,0 +1,501 @@
+﻿{
+	"code": "cauldron",
+	"class": "BlockPotionCauldron",
+	"behaviorsByType": {
+		"*": [
+			{ "name": "UnstableFalling" }
+		]
+	},
+	"entityBehaviors": [
+		{ "name": "FirepitAmbient" }
+	],
+	"entityClass": "BlockEntityPotionCauldron",
+	"attributesByType": {
+		"*": {
+			"lidSound": "game:sounds/block/metaldoor-place",
+			"canSeal": false,
+			"handbook": { "groupBy": [ "cauldron-*" ] },
+			"lidPerishRate": 0.75,
+			"maxTemperature": 900,
+			"maxFillLevel": 10,
+			"storageType": 1,
+			"maxContainerSlotStackSize": 10,
+			"cookingContainerSlots": 4,
+			"liquidcontainer": true,
+			"capacityLitres": 10,
+			"canhold": [ "water-*" ]
+		}
+	},
+	"variantgroups": [
+		{
+			"code": "metal",
+			"states": [ "copper", "tinbronze", "blackbronze", "iron", "steel", "meteoriciron" ]
+		}
+	],
+	"creativeinventory": {
+		"general": [ "*" ],
+		"decorative": [ "*" ]
+	},
+	"shape": { "base": "block/cauldron/empty" },
+	"sidesolid": {
+		"all": false
+	},
+	"sideopaque": {
+		"all": false
+	},
+	"drawtype": "JSON",
+	"blockmaterial": "Metal",
+	"texturesbyType": {
+		"*-copper": {
+			"side02": { "base": "simplealchemy:block/cauldron/side02" },
+			"front": { "base": "simplealchemy:block/cauldron/front" },
+			"metal": { "base": "game:block/metal/sheet/copper1" },
+			"metal2": { "base": "game:block/metal/sheet/brass1" },
+			"metaldark": {
+				"base": "game:block/metal/sheet/copper1",
+				"overlays": [ "block/cauldron/metaloverlay" ]
+			},
+			"metalgradient": {
+				"base": "game:block/metal/sheet/copper1",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+			}
+		},
+		"*-tinbronze": {
+			"side02": { "base": "simplealchemy:block/cauldron/side02" },
+			"front": { "base": "simplealchemy:block/cauldron/front" },
+			"metal": { "base": "game:block/metal/sheet/tinbronze1" },
+			"metal2": { "base": "game:block/metal/sheet/bismuth1" },
+			"metaldark": {
+				"base": "game:block/metal/sheet/tinbronze1",
+				"overlays": [ "block/cauldron/metaloverlay" ]
+			},
+			"metalgradient": {
+				"base": "game:block/metal/sheet/tinbronze1",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+			}
+		},
+		"*-blackbronze": {
+			"side02": { "base": "simplealchemy:block/cauldron/side02" },
+			"front": { "base": "simplealchemy:block/cauldron/front" },
+			"metal": { "base": "game:block/metal/sheet/blackbronze1" },
+			"metal2": { "base": "game:block/metal/sheet/tinbronze1" },
+			"metaldark": {
+				"base": "game:block/metal/sheet/blackbronze1",
+				"overlays": [ "block/cauldron/metaloverlay" ]
+			},
+			"metalgradient": {
+				"base": "game:block/metal/sheet/blackbronze1",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+			}
+		},
+		"*-iron": {
+			"side02": { "base": "simplealchemy:block/cauldron/side02" },
+			"front": { "base": "simplealchemy:block/cauldron/front" },
+			"metal": { "base": "block/cauldron/castiron" },
+			"metal2": { "base": "game:block/metal/sheet/gold1" },
+			"metaldark": {
+				"base": "block/cauldron/castiron",
+				"overlays": [ "block/cauldron/metaloverlay" ]
+			},
+			"metalgradient": {
+				"base": "block/cauldron/castiron",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+			}
+		},
+		"*-steel": {
+			"side02": { "base": "simplealchemy:block/cauldron/side02" },
+			"front": { "base": "simplealchemy:block/cauldron/front" },
+			"metal": { "base": "game:block/metal/sheet/steel1" },
+			"metal2": { "base": "block/cauldron/castiron" },
+			"metaldark": {
+				"base": "game:block/metal/sheet/steel1",
+				"overlays": [ "block/cauldron/metaloverlay" ]
+			},
+			"metalgradient": {
+				"base": "game:block/metal/sheet/steel1",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+			}
+		},
+		"*-meteoriciron": {
+			"side02": { "base": "simplealchemy:block/cauldron/side02" },
+			"front": { "base": "simplealchemy:block/cauldron/front" },
+			"metal": { "base": "block/cauldron/meteoriciron" },
+			"metal2": { "base": "game:block/metal/sheet/tinbronze1" },
+			"metaldark": {
+				"base": "block/cauldron/meteoriciron",
+				"overlays": [ "block/cauldron/metaloverlay" ]
+			},
+			"metalgradient": {
+				"base": "block/cauldron/meteoriciron",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+			}
+		}
+	},
+	"replaceable": 500,
+	"resistance": 1.5,
+	"liquidSelectable": 1,
+	"lightAbsorption": 1,
+	"sounds": {
+		"place": "game:block/metaldoor-place",
+		"hit": "game:block/metaldoor-place",
+		"break": "game:block/metaldoor-place",
+		"walk": "game:walk/stone"
+	},
+	"collisionSelectionBoxes": [
+		{
+			"x1": 0,
+			"y1": 0,
+			"z1": 0,
+			"x2": 1,
+			"y2": 0.1875,
+			"z2": 1
+		},
+		{
+			"x1": 0,
+			"y1": 0.1875,
+			"z1": 0,
+			"x2": 1,
+			"y2": 0.9375,
+			"z2": 0.125
+		},
+		{
+			"x1": 0,
+			"y1": 0.1875,
+			"z1": 0.875,
+			"x2": 1,
+			"y2": 0.9375,
+			"z2": 1
+		},
+		{
+			"x1": 0,
+			"y1": 0.1875,
+			"z1": 0.125,
+			"x2": 0.125,
+			"y2": 0.9375,
+			"z2": 0.875
+		},
+		{
+			"x1": 0.875,
+			"y1": 0.1875,
+			"z1": 0.125,
+			"x2": 1,
+			"y2": 0.9375,
+			"z2": 0.875
+		}
+	],
+	"materialDensity": 7870,
+	"tpHandTransform": {
+		"translation": {
+			"x": -0.86,
+			"y": -0.73,
+			"z": -1.14
+		},
+		"rotation": {
+			"x": 0,
+			"y": 0,
+			"z": 0
+		},
+		"scale": 0.55
+	},
+	"fpHandTransform": {
+		"scale": 1.5
+	},
+	"groundTransform": {
+		"origin": {
+			"x": 0.5,
+			"y": 0,
+			"z": 0.5
+		},
+		"scale": 5
+	},
+	"particleProperties": [
+		{
+			"hsvaColor": [
+				{
+					"avg": 0,
+					"var": 0
+				},
+				{
+					"avg": 0,
+					"var": 0
+				},
+				{
+					"avg": 40,
+					"var": 30
+				},
+				{
+					"avg": 220,
+					"var": 50
+				}
+			],
+			"opacityEvolve": {
+				"transform": "quadratic",
+				"factor": -16
+			},
+			"gravityEffect": {
+				"avg": 0,
+				"var": 0
+			},
+			"posOffset": [
+				{
+					"avg": 0,
+					"var": 0.2
+				},
+				{
+					"avg": 0,
+					"var": 0
+				},
+				{
+					"avg": 0,
+					"var": 0.2
+				}
+			],
+			"velocity": [
+				{
+					"avg": 0,
+					"var": 0.3
+				},
+				{
+					"avg": 0.05,
+					"var": 0.05
+				},
+				{
+					"avg": 0,
+					"var": 0.3
+				}
+			],
+			"quantity": { "avg": 0 },
+			"terrainCollision": false,
+			"size": {
+				"avg": 0.4,
+				"var": 0.04
+			},
+			"sizeEvolve": {
+				"transform": "quadratic",
+				"factor": 0.5
+			},
+			"particleModel": "Quad",
+			"lifeLength": {
+				"avg": 0.8,
+				"var": 0.21
+			},
+			"vertexFlags": 1
+		},
+		{
+			"hsvaColor": [
+				{
+					"avg": 11,
+					"var": 3
+				},
+				{
+					"avg": 238,
+					"var": 7
+				},
+				{
+					"avg": 136,
+					"var": 30
+				},
+				{
+					"avg": 220,
+					"var": 50
+				}
+			],
+			"opacityEvolve": {
+				"transform": "quadratic",
+				"factor": -32
+			},
+			"gravityEffect": {
+				"avg": 0,
+				"var": 0
+			},
+			"posOffset": [
+				{
+					"avg": 0,
+					"var": 0.005
+				},
+				{
+					"avg": -0.4,
+					"var": 0.01
+				},
+				{
+					"avg": 0,
+					"var": 0.005
+				}
+			],
+			"velocity": [
+				{
+					"avg": 0,
+					"var": 0.05
+				},
+				{
+					"avg": 0.02,
+					"var": 0.01
+				},
+				{
+					"avg": 0,
+					"var": 0.05
+				}
+			],
+			"quantity": { "avg": 0 },
+			"terrainCollision": false,
+			"size": {
+				"avg": 0.18,
+				"var": 0.03
+			},
+			"sizeEvolve": {
+				"transform": "quadratic",
+				"factor": -0.4
+			},
+			"particleModel": "Quad",
+			"lifeLength": {
+				"avg": 0.3,
+				"var": 0.06
+			},
+			"vertexFlags": 1
+		},
+		{
+			"hsvaColor": [
+				{
+					"avg": 199,
+					"var": 8
+				},
+				{
+					"avg": 245,
+					"var": 7
+				},
+				{
+					"avg": 236,
+					"var": 19
+				},
+				{
+					"avg": 98,
+					"var": 50
+				}
+			],
+			"opacityEvolve": {
+				"transform": "quadratic",
+				"factor": 32
+			},
+			"gravityEffect": {
+				"avg": -0.1,
+				"var": 0
+			},
+			"posOffset": [
+				{
+					"avg": 0,
+					"var": 0
+				},
+				{
+					"avg": -0.4,
+					"var": 0
+				},
+				{
+					"avg": 0,
+					"var": 0
+				}
+			],
+			"velocity": [
+				{
+					"avg": 0.2,
+					"var": 0.04
+				},
+				{
+					"avg": 0.09,
+					"var": 0.02
+				},
+				{
+					"avg": 0.2,
+					"var": 0.04
+				}
+			],
+			"quantity": { "avg": 0 },
+			"terrainCollision": false,
+			"size": {
+				"avg": 0.23,
+				"var": 0.03
+			},
+			"sizeEvolve": {
+				"transform": "quadratic",
+				"factor": 0.1
+			},
+			"particleModel": "Quad",
+			"lifeLength": {
+				"avg": 0.3,
+				"var": 0.04
+			},
+			"vertexFlags": 1
+		},
+		{
+			"hsvaColor": [
+				{
+					"avg": 49,
+					"var": 5
+				},
+				{
+					"avg": 178,
+					"var": 7
+				},
+				{
+					"avg": 250,
+					"var": 5
+				},
+				{
+					"avg": 30,
+					"var": 50
+				}
+			],
+			"opacityEvolve": {
+				"transform": "quadratic",
+				"factor": 32
+			},
+			"gravityEffect": {
+				"avg": 0,
+				"var": 0
+			},
+			"posOffset": [
+				{
+					"avg": 0,
+					"var": 0.015
+				},
+				{
+					"avg": -0.4,
+					"var": 0.03
+				},
+				{
+					"avg": 0,
+					"var": 0.015
+				}
+			],
+			"velocity": [
+				{
+					"avg": 0,
+					"var": 0.03
+				},
+				{
+					"avg": 0.04,
+					"var": 0.03
+				},
+				{
+					"avg": 0,
+					"var": 0.03
+				}
+			],
+			"quantity": { "avg": 0 },
+			"terrainCollision": false,
+			"size": {
+				"avg": 0.3,
+				"var": 0.04
+			},
+			"sizeEvolve": {
+				"transform": "quadratic",
+				"factor": 0.4
+			},
+			"particleModel": "Quad",
+			"lifeLength": {
+				"avg": 0.2,
+				"var": 0.02
+			},
+			"vertexFlags": 1
+		}
+	]
+}

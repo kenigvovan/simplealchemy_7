@@ -1,0 +1,93 @@
+﻿[
+  {
+    "ingredientPattern": "F_,TH",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:charcoal",
+        "quantity": 3
+      },
+      "T": {
+        "type": "item",
+        "code": "game:metalbit-copper",
+        "quantity": 2
+      },
+      "H": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-burdock-dried",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "miningspeed_kit_1",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-miningspeed-1"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-rusty",
+        "quantity": 1
+      },
+      "H": {
+        "type": "item",
+        "code": "game:feather",
+        "quantity": 2
+      },
+      "M": {
+        "type": "item",
+        "code": "game:fat",
+        "quantity": 1
+      },
+      "L": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-minerslettuce-dried",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "miningspeed_kit_2",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-miningspeed-2"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      "H": {
+        "type": "item",
+        "code": "game:crushed-ilmenite",
+        "quantity": 2
+      },
+      "M": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-dill-dried",
+        "quantity": 2
+      },
+      "L": {
+        "type": "item",
+        "code": "game:salt",
+        "quantity": 8
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "miningspeed_kit_3",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-miningspeed-3"
+    }
+  }
+]

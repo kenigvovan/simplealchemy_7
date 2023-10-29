@@ -1,0 +1,462 @@
+{
+	code: "potionportion",
+	variantgroups: [
+		{
+			code: "potiontype",
+			states: [ "meleestrength", "miningspeed", "regeneration", "walkspeed", "temporalstabilityrestore", "forgetting", "temporalcharge", "canweightbuff", "extendedmaxbreath", "invisibility", "safefall", "thorns" ]
+		},
+		{ code: "strength", states: ["weak", "medium", "strong"] },
+    ],
+	class: "ItemPotion" ,
+	matterStateByType: {
+		"*-weak": "liquid",
+		"*-medium": "liquid",
+		"*-strong": "liquid"
+	},
+	attributesByType: {
+		"*-meleestrength-*": {
+			"potioninfo": {
+				"potionId": "meleestrengthtypepotion",
+				"duration": {
+					"weak": 300,
+					"medium": 450,
+					"strong": 600
+				}
+			},
+			"statChangeValue": 0.3,
+
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/darkred_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-melee-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-miningspeed-*": {
+			"potioninfo": {
+				"potionId": "miningspeedtypepotion",
+				"duration": {
+					"weak": 300,
+					"medium": 450,
+					"strong": 600
+				}
+			},
+			"statChangeValue": 0.25,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/brown_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-mining-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-regeneration-*": {
+			"potioninfo": {
+				"potionId": "regenerationtypepotion",
+				"duration": {
+					"weak": 10,
+					"medium": 20,
+					"strong": 30
+				}
+			},
+			"statChangeValue": 0.5,
+			"waterTightContainerProps": {
+				"containable": true,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/green_potion" },
+				"allowSpill": false,
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "simplealchemy:potionportion-regen-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-walkspeed-*": {
+			"potioninfo": {
+				"potionId": "walkspeedtypepotion",
+				"duration": {
+					"weak": 300,
+					"medium": 450,
+					"strong": 600
+				}
+			},
+			"statChangeValue": 0.3,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/turquoise_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-walkspeed-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-temporalstabilityrestore-*": {
+			"potioninfo": {
+				"potionId": "temporalstabilityrestore"
+			},
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/turquoise_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-temporalstabilityrestore-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-forgetting-*": {
+			"potioninfo": {
+				"potionId": "forgetting"
+			},
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/grey_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-forgetting-{strength}",
+						"states": [ "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-temporalcharge-*": {
+			"potioninfo": {
+				"duration": {
+					"weak": 100,
+					"medium": 180,
+					"strong": 300
+				},
+				"potionId": "temporalcharge"
+			},
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/purple_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-temporalcharge-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-canweightbuff-*": {
+			"potioninfo": {
+				"duration": {
+					"weak": 100,
+					"medium": 180,
+					"strong": 300
+				},
+				"potionId": "canweightbuff"
+			},
+			"statChangeValue": 3000,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/brown_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-canweightbuff-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-weak": [ "potionportion-*-{potiontype}-weak" ],
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				}
+			}
+		},
+		"*-extendedmaxbreath-*": {
+			"potioninfo": {
+				"duration": {
+					"weak": 100,
+					"medium": 180,
+					"strong": 300
+				},
+				"potionId": "extendedmaxbreath"
+			},
+			"statChangeValue": 3000,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/turquoise_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-extendedmaxbreath-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-invisibility-*": {
+			"potioninfo": {
+				"duration": {
+					"weak": 100,
+					"medium": 180,
+					"strong": 300
+				},
+				"potionId": "invisibility"
+			},
+			"statChangeValue": 3000,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/rose_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-invisibility-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-safefall-*": {
+			"potioninfo": {
+				"duration": {
+					"weak": 100,
+					"medium": 180,
+					"strong": 300
+				},
+				"potionId": "safefall"
+			},
+			"statChangeValue": 3000,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/black_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-safefall-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-thorns-*": {
+			"potioninfo": {
+				"duration": {
+					"weak": 100,
+					"medium": 180,
+					"strong": 300
+				},
+				"potionId": "thorns"
+			},
+			"statChangeValue": 3000,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/green_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-thorns-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*": {
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "game:block/liquid/waterportion" }
+			},
+			"handbook": {
+				"ignoreCreativeInvStacks": true,
+				"groupByByType": {
+					"*-medium": [ "potionportion-*-{potiontype}-medium" ],
+					"*-strong": [ "potionportion-*-{potiontype}-strong" ]
+				},
+				"exclude": true
+			}
+		}
+	},
+		"creativeinventoryStacks": [
+			{
+				"tabs": [ "general", "liquids", "simplealchemy" ],
+				"stacks": [
+					{
+						"type": "block",
+						"code": "simplealchemy:potionflask-round-quartz",
+						"attributes": {
+							"ucontents": [
+								{
+									"type": "item",
+									"code": "simplealchemy:potionportion-{potiontype}-{strength}",
+									"makefull": true
+								}
+							]
+						}
+					}
+				]
+			}
+		],
+		"maxstacksize": 200,
+		"materialDensity": 200,
+		"shape": { "base": "game:item/liquid" },
+		"texturesByType": {
+
+			"*-meleestrength-*": {
+				"all": { "base": "simplealchemy:item/potion/darkred_potion" }
+			},
+			"*-miningspeed-*": {
+				"all": { "base": "simplealchemy:item/potion/brown_potion" }
+			},
+			"*-regeneration-*": {
+				"all": { "base": "simplealchemy:item/potion/green_potion" }
+			},
+			"*-walkspeed-*": {
+				"all": { "base": "simplealchemy:item/potion/turquoise_potion" }
+			},
+			"*-temporalstabilityrestore-*": {
+				"all": { "base": "simplealchemy:item/potion/indigo_potion" }
+			}
+		},
+		"guiTransform": {
+			"translation": {
+				"x": 0,
+				"y": 1,
+				"z": 0
+			},
+			"rotation": {
+				"x": 123,
+				"y": -33,
+				"z": -13
+			},
+			"origin": {
+				"x": 0.5,
+				"y": 0,
+				"z": 0.5
+			},
+			"scale": 1.4
+		},
+		"fpHandTransform": {
+			"translation": {
+				"x": 0,
+				"y": 0,
+				"z": 0
+			},
+			"rotation": {
+				"x": 25,
+				"y": 157,
+				"z": -5
+			}
+		},
+		"tpHandTransform": {
+			"translation": {
+				"x": -1.5,
+				"y": -1,
+				"z": -1.4
+			}
+		}
+	}

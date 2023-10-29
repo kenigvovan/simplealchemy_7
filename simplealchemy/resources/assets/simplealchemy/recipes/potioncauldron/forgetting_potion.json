@@ -1,0 +1,42 @@
+﻿[
+  {
+    "code": "forgetting-strong",
+    "minTemperature": 300,
+    "maxTemperature": 650,
+    "preparationTicks": 70,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:spiritpotionbased",
+        "litres": 4
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:ingot-*",
+        "allowedVariants": [ "gold", "silver" ],
+        "quantity": 3
+      },
+      {
+        "type": "item",
+        "code": "game:fat",
+        "quantity": 12
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-yarrow-dried",
+        "quantity": 3
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-forgetting-strong",
+      "litres": 1
+    }
+  }
+]

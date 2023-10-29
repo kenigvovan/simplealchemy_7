@@ -1,0 +1,35 @@
+﻿[
+  {
+    "ingredientPattern": "FL,TH",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      "T": {
+        "type": "item",
+        "code": "game:ingot-*",
+        "allowedVariants": [ "gold", "silver" ],
+        "quantity": 3
+      },
+      "H": {
+        "type": "item",
+        "code": "game:blastingpowder",
+        "quantity": 12
+      },
+      "L": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-yarrow-dried",
+        "quantity": 3
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "forgetting_kit",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_one-forgetting"
+    }
+  }
+]

@@ -1,0 +1,93 @@
+﻿[
+  {
+    "ingredientPattern": "F_,TH",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:blastingpowder",
+        "quantity": 6
+      },
+      "T": {
+        "type": "item",
+        "code": "game:beeswax",
+        "quantity": 2
+      },
+      "H": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-yarrow-dried",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "temporalstabilityrestore_kit_1",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-temporalstabilityrestore-1"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-rusty",
+        "quantity": 1
+      },
+      "H": {
+        "type": "item",
+        "code": "game:cattailroot",
+        "quantity": 4
+      },
+      "M": {
+        "type": "item",
+        "code": "game:metalbit-tin",
+        "quantity": 2
+      },
+      "L": {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-chicory-dried",
+        "quantity": 2
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "temporalstabilityrestore_kit_2",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-temporalstabilityrestore-2"
+    }
+  },
+  {
+    "ingredientPattern": "HL,FM",
+    "ingredients": {
+      "F": {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      "H": {
+        "type": "item",
+        "code": "game:crushed-cinnabar",
+        "quantity": 2
+      },
+      "M": {
+        "type": "item",
+        "code": "game:rot",
+        "quantity": 10
+      },
+      "L": {
+        "type": "item",
+        "code": "game:treeseed-larch",
+        "quantity": 1
+      }
+    },
+    "width": 2,
+    "height": 2,
+    "name": "temporalstabilityrestore_kit_3",
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionkit_three-temporalstabilityrestore-3"
+    }
+  }
+]
