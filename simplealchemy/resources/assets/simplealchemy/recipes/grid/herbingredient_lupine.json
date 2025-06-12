@@ -7,19 +7,11 @@
         "code": "game:flower-*-free",
         "name": "flower",
         "allowedVariants": [
-          "catmint",
-          "forgetmenot",
-          "edelweiss",
-          "heather",
-          "horsetail",
-          "orangemallow",
-          "wilddaisy",
-          "westerngorse",
-          "cowparsley",
-          "goldenpoppy",
-          "lilyofthevalley",
-          "woad",
-          "cornflower"
+          "lupine-blue",
+          "lupine-orange",
+          "lupine-purple",
+          "lupine-red",
+          "lupine-white"
         ]
       },
       "K": {
@@ -32,7 +24,7 @@
     "height": 1,
     "output": {
       "type": "item",
-      "code": "simplealchemy:herbingredient-{flower}-raw"
+      "code": "simplealchemy:herbingredient-lupine-{flower}-raw"
     }
   }
 ]

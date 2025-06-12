@@ -20,8 +20,8 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-*",
-        "allowedVariants": [ "sage-dried", "marshmallow-dried" ],
+        "code": "simplealchemy:herbingredient-lupine-lupine-*",
+        "allowedVariants": [ "orange-dried", "purple-dried" ],
         "quantity": 1
       },
       {

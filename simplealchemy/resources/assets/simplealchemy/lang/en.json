@@ -4,18 +4,37 @@
   "simplealchemy:incontainer-item-potionportion-miningspeed-weak": "Mining speed potion (weak)",
   "simplealchemy:incontainer-item-potionportion-regeneration-weak": "Regeneration potion (weak)",
   "simplealchemy:incontainer-item-potionportion-walkspeed-weak": "Walkspeed potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-thorns-weak": "Thorns potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-invisibility-weak": "Invisibility potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-temporalcharge-weak": "Temporal charge potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-extendedmaxbreath-weak": "Extended breath potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-safefall-weak": "Safe fall potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-canweightbuff-weak": "Weight bonus potion (weak)",
+  "simplealchemy:incontainer-item-potionportion-temporalstabilityrestore-weak": "Temporal stability restore potion (weak)",
 
   "simplealchemy:incontainer-item-potionportion-meleestrength-medium": "Strength potion (medium)",
   "simplealchemy:incontainer-item-potionportion-miningspeed-medium": "Mining speed potion (medium)",
   "simplealchemy:incontainer-item-potionportion-regeneration-medium": "Regeneration potion (medium)",
   "simplealchemy:incontainer-item-potionportion-walkspeed-medium": "Walkspeed potion (medium)",
-
-
+  "simplealchemy:incontainer-item-potionportion-thorns-medium": "Thorns potion (medium)",
+  "simplealchemy:incontainer-item-potionportion-invisibility-medium": "Invisibility potion (medium)",
+  "simplealchemy:incontainer-item-potionportion-temporalcharge-medium": "Temporal charge potion (medium)",
+  "simplealchemy:incontainer-item-potionportion-extendedmaxbreath-medium": "Extended breath potion (medium)",
+  "simplealchemy:incontainer-item-potionportion-safefall-medium": "Safe fall potion (medium)",
+  "simplealchemy:incontainer-item-potionportion-canweightbuff-medium": "Weight bonus potion (medium)",
+  "simplealchemy:incontainer-item-potionportion-temporalstabilityrestore-medium": "Temporal stability restore potion (medium)",
 
   "simplealchemy:incontainer-item-potionportion-meleestrength-strong": "Strength potion  (strong)",
   "simplealchemy:incontainer-item-potionportion-miningspeed-strong": "Mining speed potion (strong)",
   "simplealchemy:incontainer-item-potionportion-regeneration-strong": "Regeneration potion (strong)",
   "simplealchemy:incontainer-item-potionportion-walkspeed-strong": "Walkspeed potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-thorns-strong": "Thorns potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-invisibility-strong": "Invisibility potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-temporalcharge-strong": "Temporal charge potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-extendedmaxbreath-strong": "Extended breath potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-safefall-strong": "Safe fall potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-canweightbuff-strong": "Weight bonus potion (strong)",
+  "simplealchemy:incontainer-item-potionportion-temporalstabilityrestore-strong": "Temporal stability restore potion (strong)",
 
   "simplealchemy:incontainer-item-potionportion-forgetting-weak": "Forgetting potion",
 
@@ -167,7 +186,7 @@
   "item-herbingredient-wilddaisy-raw": "Raw wilddaisy",
   "item-herbingredient-westerngorse-raw": "Raw westerngorse",
   "item-herbingredient-cowparsley-raw": "Raw cowparsley",
-  "item-herbingredient-californiapoppy-raw": "Raw california poppy",
+  "item-herbingredient-goldenpoppy-raw": "Raw goldenpoppy poppy",
   "item-herbingredient-lilyofthevalley-raw": "Raw lilyofthevalley",
   "item-herbingredient-lupine-blue-raw": "Raw lupine blue",
   "item-herbingredient-lupine-orange-raw": "Raw lupine orange",
@@ -220,7 +239,7 @@
   "item-herbingredient-wilddaisy-dried": "Dried wilddaisy",
   "item-herbingredient-westerngorse-dried": "Dried westerngorse",
   "item-herbingredient-cowparsley-dried": "Dried cowparsley",
-  "item-herbingredient-californiapoppy-dried": "Dried california poppy",
+  "item-herbingredient-goldenpoppy-dried": "Dried goldenpoppy poppy",
   "item-herbingredient-lilyofthevalley-dried": "Dried lilyofthevalley",
   "item-herbingredient-lupine-blue-dried": "Dried lupine blue",
   "item-herbingredient-lupine-orange-dried": "Dried lupine orange",
@@ -267,37 +286,9 @@
   "forgetting_potion_desc": "Let you change your class",
 
 
-  "item-potionbasekit-spirit": "Spirit potion base kit",
-  "item-potionbasekit-water": "Water potion base kit",
-  "item-potionbasekit-honey": "Honey potion base kit",
-
   "item-honeypotionbased": "Honey potion base",
-  "item-waterpotionbased": "Honey potion base",
+  "item-waterpotionbased": "Water potion base",
 
-  "item-potionkit_three-walkspeed-1": "Walkspeed potion kit I",
-  "item-potionkit_three-walkspeed-2": "Walkspeed potion kit II",
-  "item-potionkit_three-walkspeed-3": "Walkspeed potion kit III",
-
-
-  "item-potionkit_three-miningspeed-1": "Mining speed potion kit I",
-  "item-potionkit_three-miningspeed-2": "Mining speed potion kit II",
-  "item-potionkit_three-miningspeed-3": "Mining speed potion kit III",
-
-
-  "item-potionkit_three-meleestrength-1": "Melee strength potion kit I",
-  "item-potionkit_three-meleestrength-2": "Melee strength potion kit II",
-  "item-potionkit_three-meleestrength-3": "Melee strength potion kit III",
-
-
-  "item-potionkit_three-regeneration-1": "Regeneration potion kit I",
-  "item-potionkit_three-regeneration-2": "Regeneration potion kit II",
-  "item-potionkit_three-regeneration-3": "Regeneration potion kit III",
-
-  "item-potionkit_three-temporalstabilityrestore-1": "Temporal stability potion kit I",
-  "item-potionkit_three-temporalstabilityrestore-2": "Temporal stability potion kit II",
-  "item-potionkit_three-temporalstabilityrestore-3": "Temporal stability potion kit III",
-
-  "item-potionkit_one-forgetting": "Forgetting potion kit",
 
   "game:tabname-simplealchemy": "SimpleAlchemy",
   "fuel-cauldron": "Fuel: {0}",
@@ -333,6 +324,7 @@
 
   "item-alchemyrecipesbook": "Potion recipes book",
 
-  "simplealchemyguide-text": "<strong>General</strong><br>There are 4 types of potions: walk speed, regeneration, melee strength and mining speed.<br>For potions making you'll need cauldron. There 4 tiers:<br>1 - cooper <br>2 - bronze<br>3 - iron<br>4 - steel<br><br>Right click with ingredient will add it in the cauldron<br>Right click + Shift will return last ingredient<br>Ctrl + Right click will fuel to cauldron<br>Ctrl + Right click + Shift will return fuel<br><br>After fuel is in, you can ignite it with a torch<br>When ingredients match recipe above the cauldron will appear purple particles.<br>For potion to drink you need to make potion flask<br><br><strong>Potion bases</strong><br>For the beginning you need to make base of the potion: honey potion base, water potion base or spirit potion base.<br><br>Water base:<br>minTemp=500<br>maxTemp=700<br>minCauldronTier=1<br>Preparation time=20s<br>2L of water, 4 fruits, 1 dried herb[Celandine/Liquorice], 2 dried mushrooms[Earth ball/Dryad saddle/Green cracked russule]  = 1 L<br><br>Honey base:<br>minTemp=400<br>maxTemp=800<br>minCaudronTier=1<br>Preparation time=25s<br>2L of honey, 4 vegetables, 2 dried mushrooms[Black trumpet/Chanterelle/Fly agaric], 1 dried herb [nettle/saffron] = 1L<br><br>Spirit base:<br>minTemp=900<br>maxTemp=1200<br>minCauldronTier=1<br>Preparation time=30s<br>2L of spirit, 4 flour, 1 dried herb[sage/marshmallow], 2 dried mushrooms[Shiitake/Pink oyster/King bolete] = 1L<br><br><strong>Mining speed</strong><br>(weak)<br>minTemp=900<br>maxTemp=1200<br>minCauldronTier=1<br>Preparation time=30s<br>1L of water base, 3 charcoals, 2 copper metal bits, 2 dried Burdocks = 1L<br><br>(medium)<br>minTemp=950<br>maxTemp=1100<br>minCauldronTier=2<br>Preparation time=50s<br>1L weak mining speed, 1 rusty gear, 2 feather, 1 fat, 2 dried Minner's lettuce = 1L<br><br>(strong)<br>minTemp=950<br>maxTemp=1100<br>minCauldronTier=3<br>Preparation time=70s<br>1L medium mining speed, 1 temporal gear, 2 crushed ilmenite, 2 dried Dill, 8 salt = 1L<br><br><strong>Walk speed</strong><br>(weak)<br>minTemp=300<br>maxTemp=900<br>minCauldronTier=1<br>Preparation time=30s<br>1L honey base, 8 feathers, 2 pine seeds, 2 dried Lavender = 1L<br><br>(medium)<br>minTemp=300<br>maxTemp=800<br>minCauldronTier=2<br>Preparation time=50s<br>1L weak walk speed, 1 rusty gear, 4 glacier ice, 2 dried mushrooms[Lobster/Witch hat/Bearded tooth], 2 dried Leek = 1L<br><br>(strong)<br>minTemp=300<br>maxTemp=650<br>minCauldronTier=3<br>Preparation time=70s<br>1L medium walk speed, 1 temporal gear, 2 crushed lead oxide, 2 dried Sage, 4 papyrus roots = 1L<br><br><strong>Health regeneration</strong><br>(weak)<br>minTemp=300<br>maxTemp=1000<br>minCauldronTier=1<br>Preparation time=30s<br>1L honey base, 2 silver/native silver metal bits, 1 bee wax, 2 dried Holly = 1L<br><br>(medium)<br>minTemp=900<br>maxTemp=1200<br>minCauldronTier=2<br>Preparation time=50s<br>1L weak regeneration, 1 rusty gear, 4 pineapple slices, 2 dried mushrooms[Violet web cap/Reishi/Common morel], 1 slice of cheese = 1 L<br><br>(strong)<br>minTemp=1150<br>maxTemp=1300<br>minCauldronTier=3<br>Preparation time=70s<br>1L medium regeneration, 1 temporal gear, 2 crushed lead oxide, 2 dried Mint, 2 fat = 1L<br><br><strong>Melee strength</strong><br>(weak)<br>minTemp=300<br>maxTemp=900<br>minCauldronTier=1<br>Preparation time=30s<br>1L spirit base, 6 bushmeat, 2 bonemeal, 2 dried Yarrow = 1L<br><br>(medium)<br>minTemp=300<br>300<br>maxTemp=800<br>minCauldronTier=2<br>Preparation time=50s<br>1L weak melee strength, 1 rusty gear, 4 cattail roots, 4 saltpeter, 2 dried Chicory = 1L<br><br>(strong)<br>minTemp=300<br>maxTemp=650<br>minCauldronTier=3<br>Preparation time=70s<br>1L medium melee strength, 1 temporal gear, 2 crushed cinnabar, 2 blasting powder, 1 tree seed crimson king maple = 1L<br><br><strong>Temporal stability</strong><br>(weak)<br>minTemp=300<br>maxTemp=900<br>minCauldronTier=1<br>Preparation time=30s<br>1L spirit base, 6 blasting powder, 2 beeswax, 2 dried Yarrow = 1L<br><br>(medium)<br>minTemp=300<br>300<br>maxTemp=800<br>minCauldronTier=2<br>Preparation time=50s<br>1L weak temporal stability strength, 1 rusty gear, 4 cattail roots, 4 saltpeter, 2 tin metal bits = 1L<br><br>(strong)<br>minTemp=300<br>maxTemp=650<br>minCauldronTier=3<br>Preparation time=70s<br>1L medium temporal stability, 1 temporal gear, 2 crushed cinnabar, 10 rot, 1 tree seed larch = 1L<br><br><strong>Forgetting potion</strong><br><br>minTemp=300<br>maxTemp=650<br>minCauldronTier=3<br>Preparation time=70s<br>4L spirit base, 1 temporal gear, 3 gold/silver ingots, 12 blasting powder, 3 dried Yarrow = 1L<br>"
+  "potion_book_tab_name_gui": "Potion recipes book",
 
+  "simplealchemyguide-text": "<strong>General</strong><br>There are 4 types of potions: walk speed, regeneration, melee strength and mining speed.<br>For potions making you'll need a cauldron. There 4 tiers:<br>1 - cooper <br>2 - bronze<br>3 - iron<br>4 - steel<br><br>Right click with ingredient will add it in the cauldron<br>Right click + Shift will return last ingredient<br>Ctrl + Right click will fuel to cauldron<br>Ctrl + Right click + Shift will return fuel back<br><br>After fuel is in, you can ignite it with a torch<br>When ingredients match a recipe then above the cauldron will appear purple particles.<br>For potion to drink you need to make potion flask<br><br><strong>Potion bases</strong><br>For the beginning you need to make base of the potion: honey potion base, water potion base or spirit potion base.<br>Receipes for potions bases and normal potion you can find in potion book."
 }

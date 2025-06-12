@@ -5,7 +5,9 @@
       "code": "flower",
       "states": [
         "catmint",
+        "cornflower",
         "forgetmenot",
+        "lilyofthevalley",
         "edelweiss",
         "heather",
         "horsetail",
@@ -13,49 +15,9 @@
         "wilddaisy",
         "westerngorse",
         "cowparsley",
-        "californiapoppy",
-        "lilyofthevalley",
-        "lupine-blue",
-        "lupine-orange",
-        "lupine-purple",
-        "lupine-red",
-        "lupine-white",
+        "goldenpoppy",
         "woad",
-        "cornflower",
-        "basil",
-        "bearleek",
-        "blackpepper",
-        "celery",
-        "chamomile",
-        "cilantro",
-        "dill",
-        "dock",
-        "lavender",
-        "marjoram",
-        "marshmallow",
-        "mint",
-        "mustard",
-        "rosemary",
-        "saffron",
-        "sage",
-        "sedge",
-        "stingingnettle",
-        "stjohnswort",
-        "thyme",
-        "minerslettuce",
-        "mugwort",
-        "burdock",
-        "poisonoak",
-        "holly",
-        "chicory",
-        "marigold",
-        "inula",
-        "celandine",
-        "leek",
-        "plantain",
-        "saltwort",
-        "yarrow",
-        "liquorice"
+        "redtopgrass"
       ]
     },
     {
@@ -113,26 +75,79 @@
       }
     ]
   },
+  "texturesByType": {
+    "*-orangemallow-*": {
+      "north1": { "base": "game:block/plant/flower/petal/{flower}1" },
+      "south1": { "base": "game:block/plant/flower/petal/{flower}3" },
+      "northTinted1": { "base": "game:block/plant/flower/stem/{flower}1" },
+      "southTinted1": { "base": "game:block/plant/flower/stem/{flower}3" },
+      "flower2": { "base": "game:block/plant/flower/petal/{flower}2" },
+      "flower2Tinted": { "base": "game:block/plant/flower/stem/{flower}2" }
+    },
+    "@.*-(woad|horsetail|cowparsley|goldenpoppy)-.*": {
+      "north1": { "base": "game:block/plant/flower/petal/{flower}1" },
+      "south1": { "base": "game:block/plant/flower/petal/{flower}1" },
+      "northTinted1": { "base": "game:block/plant/flower/stem/{flower}1" },
+      "southTinted1": { "base": "game:block/plant/flower/stem/{flower}1" },
+      "north2": { "base": "game:block/plant/flower/petal/{flower}2" },
+      "south2": { "base": "game:block/plant/flower/petal/{flower}2" },
+      "northTinted2": { "base": "game:block/plant/flower/stem/{flower}2" },
+      "southTinted2": { "base": "game:block/plant/flower/stem/{flower}2" },
+      "north3": { "base": "game:block/plant/flower/petal/{flower}3" },
+      "south3": { "base": "game:block/plant/flower/petal/{flower}3" },
+      "northTinted3": { "base": "game:block/plant/flower/stem/{flower}3" },
+      "southTinted3": { "base": "game:block/plant/flower/stem/{flower}3" }
+    },
+    "*": {
+      "north1": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "south1": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "northTinted1": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "southTinted1": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "north2": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "south2": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "northTinted2": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "southTinted2": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "north3": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "south3": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "northTinted3": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "southTinted3": { "base": "game:block/plant/flower/stem/{flower}*" },
+      "flower2": { "base": "game:block/plant/flower/petal/{flower}*" },
+      "flower2Tinted": { "base": "game:block/plant/flower/stem/{flower}*" }
+    }
+  },
   "shapeByType": {
-    "*": { "base": "simplealchemy:item/herb-bundle" }
+    "*-catmint-*": { "base": "game:block/plant/flower/1patch-3faces-24x24" },
+    "*-wilddaisy-*": { "base": "game:block/plant/flower/1patch-3faces-24x24" },
+    "*-goldenpoppy-*": { "base": "game:block/plant/flower/3patches-3faces-24x24" },
+    "*-horsetail-*": { "base": "game:block/plant/flower/3patches-3faces-24x24" },
+    "*-edelweiss-*": { "base": "game:block/plant/flower/3patches-3faces-16x16" },
+    "*-forgetmenot-*": { "base": "game:block/plant/flower/3patches-3faces-16x16" },
+    "*-woad-*": { "base": "game:block/plant/flower/3patches-3faces-24x24" },
+    "*-cowparsley-*": { "base": "game:block/plant/flower/3patches-3faces-24x24" },
+    "*-lilyofthevalley-*": { "base": "game:block/plant/flower/lilyofthevalley" },
+    "*-cornflower-*": { "base": "game:block/plant/flower/1patch-3faces-24x24" },
+    "*-orangemallow-*": { "base": "game:block/plant/flower/1patch-dense-24x24" },
+    "*-westerngorse-*": { "base": "game:block/plant/flower/1patch-dense-24x24" },
+    "*-heather-*": { "base": "game:block/plant/flower/1patch-dense-24x24" },
+    "*": { "base": "game:block/plant/flower/1patch-cross-24x24" }
   },
   "guiTransform": {
     "translation": {
       "x": 3,
-      "y": 0,
+      "y": 17,
       "z": 0
+    },
+    "rotation": {
+      "x": -180,
+      "y": 52,
+      "z": 12
     },
     "origin": {
       "x": 0.5,
       "y": 0,
       "z": 0.5
     },
-    "rotation": {
-      "x": 90,
-      "y": 154,
-      "z": -2
-    },
-    "scale": 3
+    "scale": 1.12
   },
   "groundTransform": {
     "origin": {
@@ -142,17 +157,35 @@
     },
     "scale": 1
   },
+  "tpHandTransform": {
+    "translation": {
+      "x": -2.6,
+      "y": -1.7,
+      "z": -1.9
+    },
+    "rotation": {
+      "x": -75,
+      "y": -153,
+      "z": 76
+    },
+    "scale": 0.25
+  },
   "fpHandTransform": {
     "translation": {
       "x": 0,
       "y": 0.24,
       "z": 0.3
     },
+    "rotation": {
+      "x": 167,
+      "y": 90,
+      "z": 180
+    },
     "origin": {
       "x": 0.5,
       "y": 0.1,
       "z": 0.5
     },
-    "scale": 2
+    "scale": 0.45
   }
 }

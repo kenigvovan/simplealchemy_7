@@ -12,7 +12,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="effectshud">
-      <HintPath>..\..\..\..\..\..\Desktop\effectshud.dll</HintPath>
+      <HintPath>..\..\..\..\..\..\Desktop\for_vs_libs\effectshud.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="VintagestoryAPI">

@@ -20,7 +20,7 @@
       {
         "type": "item",
         "code": "simplealchemy:herbingredient-*",
-        "allowedVariants": [ "saffron-dried", "stingingnettle-dried" ],
+        "allowedVariants": [ "edelweiss-dried", "heather-dried" ],
         "quantity": 1
       },
       {

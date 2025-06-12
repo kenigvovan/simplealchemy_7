@@ -99,60 +99,47 @@
     ]
   },
   "shapeByType": {
-    "*": { "base": "simplealchemy:item/mushroom-bundle" }
+    "*": { "base": "game:item/food/mushroom/{mushroom}" }
   },
-  "guiTransform": {
-    "translation": {
-      "x": 3,
-      "y": 0,
-      "z": 0
-    },
-    "rotation": {
-      "x": 140,
-      "y": -152,
-      "z": -56
-    },
-    "origin": {
-      "x": 0.5,
-      "y": 0.2,
-      "z": 0.5
-    },
-    "scale": 3
-  },
-  "fpHandTransform": {
-    "translation": {
-      "x": 0,
-      "y": 0.24,
-      "z": 0.3
-    },
-    "rotation": {
-      "x": -27,
-      "y": 98,
-      "z": -21
-    },
-    "origin": {
-      "x": 0.5,
-      "y": 0.3,
-      "z": 0.5
-    },
-    "scale": 1
+  "guiTransformByType": {
+    "*": {
+      "rotation": {
+        "x": -180,
+        "y": 107,
+        "z": 0
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0.2,
+        "z": 0.5
+      },
+      "scale": 3
+    }
   },
   "groundTransform": {
+    "origin": {
+      "x": 0.5,
+      "y": 0,
+      "z": 0.5
+    },
+    "scale": 5
+  },
+  "tpHandTransform": {
     "translation": {
-      "x": 0,
-      "y": 0.05,
-      "z": 0
+      "x": -0.93,
+      "y": -0.17,
+      "z": -0.8
     },
     "rotation": {
-      "x": 180,
-      "y": -62,
-      "z": 90
+      "x": 15,
+      "y": -10,
+      "z": -114
     },
     "origin": {
       "x": 0.5,
       "y": 0.1,
       "z": 0.5
     },
-    "scale": 2.5
+    "scale": 0.58
   }
 }

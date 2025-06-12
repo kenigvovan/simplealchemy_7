@@ -44,8 +44,8 @@
     "cover": { "base": "game:item/lore/normal-purpleorange" }
   },
   "creativeinventory": {
-    "general": [ "*" ],
-    "items": [ "*" ]
+    "items": [ "*" ],
+    "simplealchemy": [ "*" ]
   },
   "guiTransform": {
     "translation": {

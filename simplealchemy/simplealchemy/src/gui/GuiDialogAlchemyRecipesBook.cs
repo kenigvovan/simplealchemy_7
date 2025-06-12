@@ -24,16 +24,10 @@ namespace simplealchemy.src.gui
         public int selectedPage = -1;
         private InventoryGeneric inv;
         ElementBounds[] recipeIngredientsBounds;
-        //private AlchemyBookInventory inventory;
 
         public GuiDialogAlchemyRecipesBook(ItemStack bookStack, ICoreClientAPI capi) : base("", capi)
         {
-            this.inv = new InventoryGeneric(10, "GuiDialogAlchemyRecipesBook-1", capi, null);
-            //capi.World.Player.InventoryManager.OpenInventory((IInventory)inventory);
-            /* this.inventory = new AlchemyBookInventory((string)null, (ICoreAPI)null);
-             this.inventory.LateInitialize("alchemybook-124232", capi);
-             this.inventory.Pos = capi.World.Player.Entity.Pos.AsBlockPos;
-             capi.World.Player.InventoryManager.OpenInventory((IInventory)inventory);*/
+            this.inv = new InventoryGeneric(8, "GuiDialogAlchemyRecipesBook-1", capi, null);
             this.Compose();
         }
 
@@ -41,9 +35,9 @@ namespace simplealchemy.src.gui
         {
             double lineHeight = this.font.GetFontExtents().Height * this.font.LineHeightMultiplier / (double)RuntimeEnv.GUIScale;
             ElementBounds recipeNameBounds = ElementBounds.Fixed(0.0, 30.0, (double)this.maxWidth, 25);
-            ElementBounds recipeTierBounds = ElementBounds.FixedSize(250, 30.0).FixedUnder(recipeNameBounds);
-            ElementBounds recipeTempBounds = ElementBounds.FixedSize(250, 30.0).FixedUnder(recipeTierBounds);
-            ElementBounds ingredientText = ElementBounds.FixedSize(250, 30.0).FixedUnder(recipeTempBounds, 8);
+            ElementBounds recipeTierBounds = ElementBounds.FixedSize(350, 30.0).FixedUnder(recipeNameBounds);
+            ElementBounds recipeTempBounds = ElementBounds.FixedSize(350, 30.0).FixedUnder(recipeTierBounds);
+            ElementBounds ingredientText = ElementBounds.FixedSize(350, 30.0).FixedUnder(recipeTempBounds, 8);
             ElementBounds bigrecipeIngredientsBoundsFirst = ElementBounds.FixedSize(400, 48).FixedRightOf(ingredientText, 35);
             ElementBounds recipeIngredientsBoundsFirst = ElementBounds.FixedSize(48, 48).FixedUnder(recipeTempBounds, 35);
             recipeIngredientsBounds =
@@ -73,7 +67,7 @@ namespace simplealchemy.src.gui
             base.SingleComposer = this.capi.Gui
                 .CreateCompo("recipebook", dialogBounds)
                 .AddShadedDialogBG(bgBounds, true, 5.0, 0.75f)
-                .AddDialogTitleBar("Potion recipes book", delegate
+                .AddDialogTitleBar(Lang.Get("simplealchemy:potion_book_tab_name_gui"), delegate
                     {
                         this.TryClose();
                     }, null, null)
@@ -125,7 +119,15 @@ namespace simplealchemy.src.gui
                 }
                 else if(ing.Litres != -1)
                 {
-                    var bucket = new ItemStack(capi.World.GetBlock(new AssetLocation("game:woodbucket")), 1);
+                    ItemStack bucket = null;
+                    if (ing.Litres <= 1)
+                    {
+                        bucket = new ItemStack(capi.World.GetBlock(new AssetLocation("simplealchemy:potionflask-round-quartz")), 1);
+                    }
+                    else
+                    {
+                        new ItemStack(capi.World.GetBlock(new AssetLocation("game:woodbucket")), 1);
+                    }
                     ITreeAttribute tree = new TreeAttribute();
                     ItemStack liqStack = selectedRecipe.Ingredients[i].ResolvedItemstack;
                     liqStack.StackSize = selectedRecipe.Ingredients[i].Quantity;
@@ -162,7 +164,9 @@ namespace simplealchemy.src.gui
             }
             
             SingleComposer.AddStaticText(Lang.Get("simplealchemy:output_list"), font, outputList);
-            var bucketSatck = new ItemStack(capi.World.GetBlock(new AssetLocation("game:woodbucket")), 1);
+
+            var bucketSatck = new ItemStack(capi.World.GetBlock(new AssetLocation("simplealchemy:potionflask-round-quartz")), 1);
+            //new ItemStack(capi.World.GetBlock(new AssetLocation("game:woodbucket")), 1);
             ITreeAttribute treeh = new TreeAttribute();
             ItemStack outStack = selectedRecipe.Output.ResolvedItemstack;
             outStack.StackSize = selectedRecipe.Output.Quantity;
@@ -175,12 +179,9 @@ namespace simplealchemy.src.gui
                 SingleComposer.AddRichtext(new RichTextComponentBase[] { sli }, recipeOutput, "outputstack");
             }
             SingleComposer.AddSmallButton(Lang.Get("<", Array.Empty<object>()), new ActionConsumable(this.prevPage), prevButtonBounds, EnumButtonStyle.Normal, null)
-                .AddDynamicText("1/1", CairoFont.WhiteSmallText().WithOrientation(EnumTextOrientation.Center), pageLabelBounds, "pageNum")
+                .AddDynamicText(string.Format("{0} / {1}", (selectedPage + 1).ToString(),  alchemyRecipesList.Count.ToString()), CairoFont.WhiteSmallText().WithOrientation(EnumTextOrientation.Center), pageLabelBounds, "pageNum")
                 .AddSmallButton(Lang.Get(">", Array.Empty<object>()), new ActionConsumable(this.nextPage), nextButtonBounds, EnumButtonStyle.Normal, null)
                 .AddSmallButton(Lang.Get("Close", Array.Empty<object>()), () => this.TryClose(), closeButton, EnumButtonStyle.Normal, null)
-                //.AddIf(this.onTranscribedPressed != null)
-                //.AddSmallButton(Lang.Get("Transcribe", Array.Empty<object>()), new ActionConsumable(this.onButtonTranscribe), saveButtonBounds, EnumButtonStyle.Normal, null)
-                //.EndIf()
                 .EndChildElements();
 
             SingleComposer.Compose(true);
@@ -199,15 +200,10 @@ namespace simplealchemy.src.gui
             this.selectedPage++;
             Compose();
             return true;
-            updatePage(alchemyRecipesList.ElementAt(this.selectedPage));
-            //Compose();
-            //SingleComposer.ReCompose();
-            return true;
         }
 
         private bool prevPage()
-        {
-            
+        {           
             var alchemyRecipesList = simplealchemy.potionCauldronRecipes;
             if (alchemyRecipesList.Count < 1 ||  0 > (this.selectedPage - 1))
             {
@@ -216,22 +212,18 @@ namespace simplealchemy.src.gui
             this.selectedPage--;
             Compose();
             return true;
-            updatePage(alchemyRecipesList.ElementAt(this.selectedPage));
-            return true;
         }
 
         protected void updatePage(PotionCauldronRecipe recipe)
         {
-            base.SingleComposer
+            SingleComposer
                 .GetDynamicText("recipeName")
                 .SetNewText(Lang.Get("simplealchemy:" + recipe.Code), false, false, false);
 
-            //Lang.Get("simplelachemy:", selectedRecipe.MinCauldronTier.ToString())
-            base.SingleComposer
+            SingleComposer
                 .GetDynamicText("recipeTier")
                 .SetNewText(Lang.Get("simplealchemy:cauldron_level_gui", recipe.MinCauldronTier), false, false, false);
-            //SingleComposer.AddDynamicText(Lang.Get("simplelachemy:min_max_temp_recipe", selectedRecipe.MinTemperature.ToString(), selectedRecipe.MaxTemperature.ToString()), font, recipeTempBounds, "recipeTemp");
-            base.SingleComposer
+            SingleComposer
                 .GetDynamicText("recipeTemp")
                 .SetNewText(Lang.Get("simplealchemy:min_max_temp_recipe", recipe.MinTemperature.ToString(), recipe.MaxTemperature.ToString()), false, false, false);
             updateRecipeIngredient(recipe);
@@ -278,9 +270,7 @@ namespace simplealchemy.src.gui
                     tree.SetItemstack("0", liqStack);
                     bucket.Attributes["contents"] = tree;
                     slideShow = new SlideshowItemstackTextComponent(capi, new ItemStack[] { bucket }, 48, EnumFloat.Inline);
-
                 }
-
                 else
                 {
                     var bucket = new ItemStack(capi.World.GetItem(recipe.Ingredients[i].Code), 12);
@@ -310,19 +300,13 @@ namespace simplealchemy.src.gui
                     //existed but we don't need it now
                     if (slideShow == null || slideShow.Itemstacks.Count() < 1)
                     {
-                        //SingleComposer.
-                        richText.Dispose();
                         Compose();
-                        //SingleComposer.ReCompose();
                     }
                     else
                     {
                         richText.SetNewText(new RichTextComponentBase[] { slideShow });
                     }
                 }
-
-
-
             }
         }
     }

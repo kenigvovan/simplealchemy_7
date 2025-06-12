@@ -23,7 +23,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-lavender-dried",
+        "code": "simplealchemy:herbingredient-wilddaisy-dried",
         "quantity": 2
       }
     ],
@@ -63,7 +63,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-leek-dried",
+        "code": "simplealchemy:herbingredient-edelweiss-dried",
         "quantity": 2
       }
     ],
@@ -79,12 +79,6 @@
     "maxTemperature": 650,
     "preparationTicks": 70,
     "minCauldronTier": 3,
-    "dependsOn": [
-      {
-        "modid": "em",
-        "invert": true
-      }
-    ],
     "ingredients": [
       {
         "type": "item",
@@ -103,7 +97,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-sage-dried",
+        "code": "simplealchemy:herbingredient-catmint-dried",
         "quantity": 2
       },
       {
@@ -124,11 +118,6 @@
     "maxTemperature": 650,
     "preparationTicks": 70,
     "minCauldronTier": 3,
-    "dependsOn": [
-      {
-        "modid": "em"
-      }
-    ],
     "ingredients": [
       {
         "type": "item",
@@ -147,7 +136,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-sage-dried",
+        "code": "simplealchemy:herbingredient-westerngorse-dried",
         "quantity": 2
       },
       {

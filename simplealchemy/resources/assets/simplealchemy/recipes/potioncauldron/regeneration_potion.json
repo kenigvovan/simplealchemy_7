@@ -24,7 +24,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-holly-dried",
+        "code": "simplealchemy:herbingredient-goldenpoppy-dried",
         "quantity": 2
       }
     ],
@@ -59,7 +59,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-holly-dried",
+        "code": "simplealchemy:herbingredient-woad-dried",
         "quantity": 2
       }
     ],
@@ -139,7 +139,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-mint-dried",
+        "code": "simplealchemy:herbingredient-orangemallow-dried",
         "quantity": 2
       }
     ],

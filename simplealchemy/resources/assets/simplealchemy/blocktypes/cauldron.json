@@ -33,8 +33,8 @@
 		}
 	],
 	"creativeinventory": {
-		"general": [ "*" ],
-		"decorative": [ "*" ]
+		"items": [ "*" ],
+		"simplealchemy": [ "*" ]
 	},
 	"shape": { "base": "block/cauldron/empty" },
 	"sidesolid": {
@@ -91,15 +91,15 @@
 		"*-iron": {
 			"side02": { "base": "simplealchemy:block/cauldron/side02" },
 			"front": { "base": "simplealchemy:block/cauldron/front" },
-			"metal": { "base": "block/cauldron/castiron" },
+			"metal": { "base": "simplealchemy:block/cauldron/castiron" },
 			"metal2": { "base": "game:block/metal/sheet/gold1" },
 			"metaldark": {
-				"base": "block/cauldron/castiron",
-				"overlays": [ "block/cauldron/metaloverlay" ]
+				"base": "simplealchemy:block/cauldron/castiron",
+				"overlays": [ "simplealchemy:block/cauldron/metaloverlay" ]
 			},
 			"metalgradient": {
-				"base": "block/cauldron/castiron",
-				"overlays": [ "block/cauldron/metaloverlaygradient" ]
+				"base": "simplealchemy:block/cauldron/castiron",
+				"overlays": [ "simplealchemy:block/cauldron/metaloverlaygradient" ]
 			}
 		},
 		"*-steel": {

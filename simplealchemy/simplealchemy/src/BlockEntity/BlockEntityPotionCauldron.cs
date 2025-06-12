@@ -359,7 +359,7 @@ namespace simplealchemy.src
                 //this.GenRightMesh();
                 this.MarkDirty(true);
                 ((ICoreServerAPI)Api).Network.BroadcastBlockEntityPacket(
-                    Pos.X, Pos.Y, Pos.Z,
+                    this.Pos,
                     667,
                     null
                 );
@@ -457,7 +457,7 @@ namespace simplealchemy.src
                         lastFuelAmount = 0;
                         //this.MarkDirty(true);
                         ((ICoreServerAPI)Api).Network.BroadcastBlockEntityPacket(
-                    Pos.X, Pos.Y, Pos.Z,
+                    this.Pos,
                     667,
                     null
                 );
@@ -468,7 +468,7 @@ namespace simplealchemy.src
                     lastFuelAmount = fuelStack.StackSize;
                     //this.MarkDirty(true);
                     ((ICoreServerAPI)Api).Network.BroadcastBlockEntityPacket(
-                    Pos.X, Pos.Y, Pos.Z,
+                    this.Pos,
                     667,
                     null
                 );

@@ -470,7 +470,7 @@ namespace simplealchemy.src
                 {
                     if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible.CombustibleProps.BurnDuration > 0)
                     {
-                        ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Button1, 0, EnumMergePriority.DirectMerge, 1);
+                        ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Right, 0, EnumMergePriority.DirectMerge, 1);
                         byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(sp.fuelSlot, ref op);
                         if (op.MovedQuantity > 0)
                         {
@@ -607,7 +607,7 @@ namespace simplealchemy.src
                                 for (int i = sp.firstIngredientSlot; i < sp.Inventory.Count; i++)
                                 {
                                     //var p = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Block.Code.ToString();
-                                    ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Button1, 0, EnumMergePriority.DirectMerge, 1);
+                                    ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Right, 0, EnumMergePriority.DirectMerge, 1);
                                     byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(sp.Inventory[i], ref op);
                                     if (op.MovedQuantity > 0)
                                     {
@@ -626,7 +626,7 @@ namespace simplealchemy.src
                             for (int i = sp.firstIngredientSlot; i < sp.Inventory.Count; i++)
                             {
                                 //var p = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Block.Code.ToString();
-                                ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Button1, 0, EnumMergePriority.DirectMerge, 1);
+                                ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Right, 0, EnumMergePriority.DirectMerge, 1);
                                 byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(sp.Inventory[i], ref op);
                                 if (op.MovedQuantity > 0)
                                 {
@@ -844,17 +844,17 @@ namespace simplealchemy.src
 
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
         {
-            Dictionary<int, MeshRef> meshrefs = null;
+            Dictionary<int, MultiTextureMeshRef> meshrefs = null;
             bool isSealed = itemstack.Attributes.GetBool("isSealed");
 
             object obj;
             if (capi.ObjectCache.TryGetValue((Variant["metal"]) + "MeshRefs", out obj))
             {
-                meshrefs = obj as Dictionary<int, MeshRef>;
+                meshrefs = obj as Dictionary<int, MultiTextureMeshRef>;
             }
             else
             {
-                capi.ObjectCache[(Variant["metal"]) + "MeshRefs"] = meshrefs = new Dictionary<int, MeshRef>();
+                capi.ObjectCache[(Variant["metal"]) + "MeshRefs"] = meshrefs = new Dictionary<int, MultiTextureMeshRef>();
             }
 
             ItemStack contentStack = GetContent(itemstack);
@@ -862,7 +862,7 @@ namespace simplealchemy.src
 
             int hashcode = GetSaucepanHashCode(capi.World, contentStack, isSealed);
 
-            MeshRef meshRef = null;
+            MultiTextureMeshRef meshRef = null;
 
             if (!meshrefs.TryGetValue(hashcode, out meshRef))
             {
@@ -870,7 +870,7 @@ namespace simplealchemy.src
                 //meshdata.Rgba2 = null;
 
 
-                meshrefs[hashcode] = meshRef = capi.Render.UploadMesh(meshdata);
+                meshrefs[hashcode] = meshRef = capi.Render.UploadMultiTextureMesh(meshdata);
 
             }
 
@@ -1114,6 +1114,19 @@ namespace simplealchemy.src
             }
 
             world.BlockAccessor.SetBlock(0, pos);
+        }
+
+        public EnumIgniteState OnTryIgniteStack(EntityAgent byEntity, BlockPos pos, ItemSlot slot, float secondsIgniting)
+        {
+           if (!(this.api.World.BlockAccessor.GetBlockEntity(pos) as BlockEntityFirepit).IsBurning)
+			{
+				return EnumIgniteState.NotIgnitable;
+			}
+			if (secondsIgniting <= 2f)
+			{
+				return EnumIgniteState.Ignitable;
+			}
+			return EnumIgniteState.IgniteNow;
         }
     }
 

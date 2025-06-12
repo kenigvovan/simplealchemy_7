@@ -7,15 +7,16 @@ using Vintagestory.GameContent;
 
 namespace simplealchemy.src
 {
-    public class BlockEntityPotionFlask : BlockEntityContainer
+    public class BlockEntityPotionFlask : BlockEntityLiquidContainer
     {
-        public override InventoryBase Inventory => inv;
-        InventoryGeneric inv;
+        public override InventoryBase Inventory => inventory;
+        //InventoryGeneric inv;
+        public float MeshAngle;
         public override string InventoryClassName => "potionflask";
 
         public BlockEntityPotionFlask()
         {
-            inv = new InventoryGeneric(1, null, null);
+            inventory = new InventoryGeneric(1, null, null);
         }
 
         BlockPotionFlask ownBlock;
@@ -36,13 +37,13 @@ namespace simplealchemy.src
 
         public ItemStack GetContent()
         {
-            return inv[0].Itemstack;
+            return inventory[0].Itemstack;
         }
 
 
         internal void SetContent(ItemStack stack)
         {
-            inv[0].Itemstack = stack;
+            inventory[0].Itemstack = stack;
             MarkDirty(true);
         }
 

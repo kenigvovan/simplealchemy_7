@@ -45,7 +45,7 @@ namespace simplealchemy.src
         }
         public Part<Dictionary<string, HashSet<string>>> allowedIngredientsItems = new Part<Dictionary<string, HashSet<string>>>(new Dictionary<string, HashSet<string>>() {
             { "game", new HashSet<string>(){ "beeswax", "bone", "bonemeal", "feather", "fat", "rot", "papyrusroot", "papyrustops", "salt", "redmeat-raw", "bushmeat-raw",
-            "powderedsulfur", "gear-rusty", "gear-temporal", "drygrass", "cattailroot", "blastingpowder", "glacierice", "saltpeter"} }
+            "powderedsulfur", "gear-rusty", "gear-temporal", "drygrass", "cattailroot", "blastingpowder", "glacierice", "saltpeter", "charcoal"} }
 
         });
 

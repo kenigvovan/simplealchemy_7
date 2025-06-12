@@ -23,7 +23,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-burdock-dried",
+        "code": "simplealchemy:herbingredient-catmint-dried",
         "quantity": 2
       }
     ],
@@ -62,7 +62,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-minerslettuce-dried",
+        "code": "simplealchemy:herbingredient-horsetail-dried",
         "quantity": 2
       }
     ],
@@ -96,7 +96,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-dill-dried",
+        "code": "simplealchemy:herbingredient-cornflower-dried",
         "quantity": 2
       },
       {

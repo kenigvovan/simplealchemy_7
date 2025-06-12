@@ -1,4 +1,5 @@
 ﻿using effectshud.src;
+using HarmonyLib;
 using Newtonsoft.Json;
 using simplealchemy.src.gui;
 using simplealchemy.src.item;
@@ -23,6 +24,8 @@ namespace simplealchemy.src
         public static ICoreServerAPI sapi;
         public static Dictionary<string, long> lastPlayerClassChange;
         public static List<PotionCauldronRecipe> potionCauldronRecipes;
+        public static Harmony harmonyInstance;
+        public const string harmonyID = "blacksmithname.Patches";
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
@@ -32,6 +35,8 @@ namespace simplealchemy.src
             api.RegisterItemClass("ItemAlchemyRecipesBook", typeof(ItemAlchemyRecipesBook));
             api.RegisterBlockClass("BlockPotionCauldron", typeof(BlockPotionCauldron));
             api.RegisterBlockEntityClass("BlockEntityPotionCauldron", typeof(BlockEntityPotionCauldron));
+            //harmonyInstance = new Harmony(harmonyID);
+            //harmonyInstance.Patch(typeof(Vintagestory.API.Common.CollectibleObject).GetMethod("GetHeldItemInfo"), prefix: new HarmonyMethod(typeof(harmPatches).GetMethod("Postfix_GetHeldItemInfo")));
 
         }
         public override void StartClientSide(ICoreClientAPI api)

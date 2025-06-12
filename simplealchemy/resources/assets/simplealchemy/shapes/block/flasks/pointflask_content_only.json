@@ -1,0 +1,42 @@
+{
+	"editor": {
+		"allAngles": false,
+		"entityTextureMode": false
+	},
+	"textureWidth": 16,
+	"textureHeight": 16,
+	"textureSizes": {
+	},
+	"textures": {
+		"content": "game:block/transparent"
+	},
+	"elements": [
+		{
+			"name": "liquid",
+			"from": [ 7.31, 0.04, 7.25 ], 
+			"to": [ 8.71, 0.79, 8.69 ], 
+			"rotationOrigin": [ 6.9, 0.0, 7.9 ],
+			"faces": {
+				"north": { "texture": "#content", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"east": { "texture": "#content", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"south": { "texture": "#content", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"west": { "texture": "#content", "uv": [ 0.0, 0.0, 1.0, 0.5 ] },
+				"up": { "texture": "#content", "uv": [ 0.0, 0.0, 1.0, 1.0 ] },
+				"down": { "texture": "#content", "uv": [ 0.0, 0.0, 1.0, 1.0 ] }
+			}
+		},
+		{
+			"name": "liquid34",
+			"from": [ 7.2, 0.14, 7.2 ], 
+			"to": [ 8.8, 0.44, 8.75 ], 
+			"rotationOrigin": [ 6.9, 0.1, 7.8 ],
+			"faces": {
+				"north": { "texture": "#content", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+				"east": { "texture": "#content", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+				"south": { "texture": "#content", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+				"west": { "texture": "#content", "uv": [ 0.0, 0.0, 1.5, 0.5 ] },
+				"up": { "texture": "#content", "uv": [ 0.0, 0.0, 1.5, 1.5 ] },
+				"down": { "texture": "#content", "uv": [ 0.0, 0.0, 1.5, 1.5 ] }
+			}
+		}
+	]}

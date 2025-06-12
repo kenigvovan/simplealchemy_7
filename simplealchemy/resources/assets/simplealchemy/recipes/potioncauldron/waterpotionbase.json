@@ -20,7 +20,7 @@
       {
         "type": "item",
         "code": "simplealchemy:herbingredient-*",
-        "allowedVariants": [ "celandine-dried", "liquorice-dried" ],
+        "allowedVariants": [ "woad-dried", "heather-dried" ],
         "quantity": 1
       },
       {

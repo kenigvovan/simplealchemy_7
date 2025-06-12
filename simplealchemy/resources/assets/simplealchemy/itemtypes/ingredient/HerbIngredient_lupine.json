@@ -1,0 +1,142 @@
+﻿{
+  "code": "herbingredient-lupine",
+  "variantgroups": [
+    {
+      "code": "flower",
+      "states": [ "lupine" ]
+    },
+    {
+      "code": "color",
+      "states": [ "blue", "orange", "purple", "red", "white" ]
+    },
+    {
+      "code": "stage",
+      "states": [ "raw", "dried" ]
+    }
+  ],
+  "attributes": {
+    "meathookable": true,
+    "meatHookTransform": {
+      "translation": {
+        "x": 0.01,
+        "y": 0.5,
+        "z": 0
+      },
+      "rotation": {
+        "x": 102,
+        "y": 0,
+        "z": 56
+      },
+      "origin": {
+        "x": 0.5,
+        "y": 0,
+        "z": 0.5
+      },
+      "scale": 0.4
+    }
+  },
+  "creativeinventory": {
+    "items": [ "*" ],
+    "simplealchemy": [ "*" ]
+  },
+  "maxstacksize": 64,
+  "transitionablePropsByType": {
+    "*-raw": [
+      {
+        "type": "Perish",
+        "freshHours": { "avg": 480 },
+        "transitionHours": { "avg": 86 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "game:rot"
+        },
+        "transitionRatio": 1
+      },
+      {
+        "type": "Dry",
+        "freshHours": { "avg": 6 },
+        "transitionHours": { "avg": 104 },
+        "transitionedStack": {
+          "type": "item",
+          "code": "simplealchemy:herbingredient-{flower}-dried"
+        },
+        "transitionRatio": 1
+      }
+    ]
+  },
+  "texturesByType": {
+    "*-lupine-*": {
+      "plant1a": { "base": "game:block/plant/flower/petal/lupine/{color}1-a" },
+      "plant1b": { "base": "game:block/plant/flower/petal/lupine/{color}1-b" },
+      "plant1astem": { "base": "game:block/plant/flower/stem/lupine/normal1-a" },
+      "plant1bstem": { "base": "game:block/plant/flower/stem/lupine/normal1-b" },
+
+      "plant2a": { "base": "game:block/plant/flower/petal/lupine/{color}2-a" },
+      "plant2b": { "base": "game:block/plant/flower/petal/lupine/{color}2-b" },
+      "plant2astem": { "base": "game:block/plant/flower/stem/lupine/normal2-a" },
+      "plant2bstem": { "base": "game:block/plant/flower/stem/lupine/normal2-b" },
+
+      "plant3a": { "base": "game:block/plant/flower/petal/lupine/{color}3-a" },
+      "plant3b": { "base": "game:block/plant/flower/petal/lupine/{color}3-b" },
+      "plant3astem": { "base": "game:block/plant/flower/stem/lupine/normal3-a" },
+      "plant3bstem": { "base": "game:block/plant/flower/stem/lupine/normal3-b" },
+
+      "plant4a": { "base": "game:block/plant/flower/petal/lupine/{color}4-a" },
+      "plant4b": { "base": "game:block/plant/flower/petal/lupine/{color}4-b" },
+      "plant4astem": { "base": "game:block/plant/flower/stem/lupine/normal4-a" },
+      "plant4bstem": { "base": "game:block/plant/flower/stem/lupine/normal4-b" },
+
+      "plant5a": { "base": "game:block/plant/flower/petal/lupine/{color}5-a" },
+      "plant5b": { "base": "game:block/plant/flower/petal/lupine/{color}5-b" },
+      "plant5astem": { "base": "game:block/plant/flower/stem/lupine/normal5-a" },
+      "plant5bstem": { "base": "game:block/plant/flower/stem/lupine/normal5-b" }
+    }
+  },
+  "shapeByType": {
+    "*-lupine-*": { "base": "game:block/plant/lupine/one-plant" }
+  },
+  "tpHandTransform": {
+    "translation": {
+      "x": -1.7,
+      "y": -1.1,
+      "z": -1.15
+    },
+    "rotation": {
+      "x": 14,
+      "y": 6,
+      "z": -92
+    },
+    "scale": 0.43
+  },
+  "guiTransform": {
+    "rotation": {
+      "x": -180,
+      "y": 8,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0.36,
+      "z": 0.5
+    },
+    "scale": 2.1
+  },
+  "groundTransform": {
+    "translation": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "rotation": {
+      "x": 0,
+      "y": -45,
+      "z": 0
+    },
+    "origin": {
+      "x": 0.5,
+      "y": 0,
+      "z": 0.5
+    },
+    "scale": 2.73
+  }
+}

@@ -21,7 +21,7 @@
       "ignoreCreativeInvStacks": true
     }
   },
-  "texture": { "base": "game:block/plant/moss" },
+  "texture": { "base": "game:block/fire-orange" },
   "shape": { "base": "game:item/liquid" },
   "creativeinventoryStacks": [
     {

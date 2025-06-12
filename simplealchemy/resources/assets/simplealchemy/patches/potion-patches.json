@@ -1,0 +1,15 @@
+﻿[
+  {
+    "file": "simplealchemy:recipes/potioncauldron/walk_speed_potion.json",
+    "op": "add",
+    "path": "/3/enabled",
+    "value": false,
+    "dependsOn": [
+      {
+        "modid": "em",
+        "invert": true
+      }
+    ],
+    "side": "server"
+  }
+]

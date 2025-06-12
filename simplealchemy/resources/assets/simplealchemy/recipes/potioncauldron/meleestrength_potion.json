@@ -23,7 +23,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-yarrow-dried",
+        "code": "simplealchemy:herbingredient-lilyofthevalley-dried",
         "quantity": 2
       }
     ],
@@ -62,7 +62,7 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-chicory-dried",
+        "code": "simplealchemy:herbingredient-westerngorse-dried",
         "quantity": 2
       }
     ],

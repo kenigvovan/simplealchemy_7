@@ -14,11 +14,12 @@ using System.Text;
 using simplealchemy.src;
 using effectshud.src;
 using effectshud.src.DefaultEffects;
+using Vintagestory.Client.NoObf;
 
 namespace simplesimplealchemy.src
 {
     //Add perish time to potions but potion flasks have low perish rates or do not perish
-    public class BlockPotionFlask : BlockBucket
+    public class BlockPotionFlask : /*BlockBucket */BlockLiquidContainerTopOpened
     {
         LiquidTopOpenContainerProps Props;
         public override float TransferSizeLitres => Props.TransferSizeLitres;
@@ -57,60 +58,29 @@ namespace simplesimplealchemy.src
             if (contentStack != null)
             {
                 WaterTightContainableProps props = GetContainableProps(contentStack);
+                float level = 0;
+                FlaskTextureSource contentSource = null;
                 if (props == null) return null;
+                
+                contentSource = new FlaskTextureSource(capi, contentStack, props.Texture, this);
 
-                FlaskTextureSource contentSource = new FlaskTextureSource(capi, contentStack, props.Texture, this);
-
-                float level = contentStack.StackSize / props.ItemsPerLitre;
-                if (Code.Path.Contains("flask-normal"))
+                level = contentStack.StackSize / props.ItemsPerLitre;
+                
+                
+                if (level == 0)
                 {
-                    if (level == 0)
-                    {
-                        shape = capi.Assets.TryGet(emptyShapeLoc).ToObject<Shape>();
-                    }
-                    else if (level <= 0.25)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/flask-liquid-1.json").ToObject<Shape>();
-                    }
-                    else if (level <= 0.5)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/flask-liquid-2.json").ToObject<Shape>();
-                    }
-                    else if (level <= 0.75)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/flask-liquid-3.json").ToObject<Shape>();
-                    }
-                    else if (level > 0.75)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/flask-liquid.json").ToObject<Shape>();
-                    }
+                    shape = capi.Assets.TryGet(emptyShapeLoc).ToObject<Shape>();
                 }
-                else if (Code.Path.Contains("flask-round"))
+                else if (level <= 0.5)
                 {
-                    if (level == 0)
-                    {
-                        shape = capi.Assets.TryGet(emptyShapeLoc).ToObject<Shape>();
-                    }
-                    else if (level <= 0.5)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/roundflask-liquid-1.json").ToObject<Shape>();
-                    }
-                    else if (level > 0.5)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/roundflask-liquid.json").ToObject<Shape>();
-                    }
+                    shape = capi.Assets.TryGet("simplealchemy:shapes/block/flasks/pointflask_filled.json").ToObject<Shape>();
                 }
-                else
+                else if (level > 0.5)
                 {
-                    if (level == 0)
-                    {
-                        shape = capi.Assets.TryGet(emptyShapeLoc).ToObject<Shape>();
-                    }
-                    else if (level > 0)
-                    {
-                        shape = capi.Assets.TryGet("simplealchemy:shapes/block/glass/tubeflask-liquid.json").ToObject<Shape>();
-                    }
+                    shape = capi.Assets.TryGet("simplealchemy:shapes/block/flasks/pointflask_filled.json").ToObject<Shape>();
                 }
+                
+              
 
                 capi.Tesselator.TesselateShape("potionflask", shape, out flaskmesh, contentSource, new Vec3f(Shape.rotateX, Shape.rotateY, Shape.rotateZ));
             }
@@ -121,22 +91,22 @@ namespace simplesimplealchemy.src
         public override void OnBeforeRender(ICoreClientAPI capi, ItemStack itemstack, EnumItemRenderTarget target, ref ItemRenderInfo renderinfo)
         {
             if (Code.Path.Contains("clay")) return;
-            Dictionary<string, MeshRef> meshrefs = null;
+            Dictionary<string, MultiTextureMeshRef> meshrefs = null;
 
             object obj;
             if (capi.ObjectCache.TryGetValue(meshRefsCacheKey, out obj))
             {
-                meshrefs = obj as Dictionary<string, MeshRef>;
+                meshrefs = obj as Dictionary<string, MultiTextureMeshRef>;
             }
             else
             {
-                capi.ObjectCache[meshRefsCacheKey] = meshrefs = new Dictionary<string, MeshRef>();
+                capi.ObjectCache[meshRefsCacheKey] = meshrefs = new Dictionary<string, MultiTextureMeshRef>();
             }
 
             ItemStack contentStack = GetContent(itemstack);
             if (contentStack == null) return;
 
-            MeshRef meshRef = null;
+            MultiTextureMeshRef meshRef = null;
 
             if (!meshrefs.TryGetValue(contentStack.Collectible.Code.Path + Code.Path + contentStack.StackSize, out meshRef))
             {
@@ -144,7 +114,7 @@ namespace simplesimplealchemy.src
                 if (meshdata == null) return;
 
 
-                meshrefs[contentStack.Collectible.Code.Path + Code.Path + contentStack.StackSize] = meshRef = capi.Render.UploadMesh(meshdata);
+                meshrefs[contentStack.Collectible.Code.Path + Code.Path + contentStack.StackSize] = meshRef = capi.Render.UploadMultiTextureMesh(meshdata);
 
             }
 
@@ -159,7 +129,7 @@ namespace simplesimplealchemy.src
             object obj;
             if (capi.ObjectCache.TryGetValue(meshRefsCacheKey, out obj))
             {
-                Dictionary<string, MeshRef> meshrefs = obj as Dictionary<string, MeshRef>;
+                Dictionary<string, MultiTextureMeshRef> meshrefs = obj as Dictionary<string, MultiTextureMeshRef>;
 
                 foreach (var val in meshrefs)
                 {
@@ -351,18 +321,22 @@ namespace simplesimplealchemy.src
                     }
                     else if (potionItem.potionId == "forgetting")
                     {
-                        if(simplealchemy.src.simplealchemy.lastPlayerClassChange.TryGetValue((byEntity as EntityPlayer).PlayerUID, out long val))
+                        if (simplealchemy.src.Config.Current.forgetingPotionWorks.Val)
                         {
-                            if(val > byEntity.Api.World.Calendar.ElapsedDays)
+                            if (simplealchemy.src.simplealchemy.lastPlayerClassChange.TryGetValue((byEntity as EntityPlayer).PlayerUID, out long val))
                             {
-                                return;
+                                if (val > byEntity.Api.World.Calendar.ElapsedDays)
+                                {
+                                    return;
+                                }
                             }
-                        }
-                        effectshud.src.DefaultEffects.ForgettingEffect eff = new effectshud.src.DefaultEffects.ForgettingEffect();
-                        eff.Tier = potionItem.tier;
-                        effectshud.src.effectshud.ApplyEffectOnEntity(byEntity, eff);
+                            effectshud.src.DefaultEffects.ForgettingEffect eff = new effectshud.src.DefaultEffects.ForgettingEffect();
+                            eff.Tier = potionItem.tier;
+                            effectshud.src.effectshud.ApplyEffectOnEntity(byEntity, eff);
 
-                        simplealchemy.src.simplealchemy.lastPlayerClassChange[(byEntity as EntityPlayer).PlayerUID] = (long)byEntity.Api.World.Calendar.ElapsedDays + simplealchemy.src.Config.Current.daysBetweenClassChangeWithPotion.Val;
+                            simplealchemy.src.simplealchemy.lastPlayerClassChange[(byEntity as EntityPlayer).PlayerUID] = (long)byEntity.Api.World.Calendar.ElapsedDays + simplealchemy.src.Config.Current.daysBetweenClassChangeWithPotion.Val;
+
+                        }
                     }
                     else if (potionItem.potionId == "temporalcharge")
                     {
@@ -565,6 +539,7 @@ namespace simplesimplealchemy.src
                 content.Collectible.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
             }
         }
+
     }
 
     public class FlaskTextureSource : ITexPositionSource
@@ -583,18 +558,18 @@ namespace simplesimplealchemy.src
             this.capi = capi;
             this.forContents = forContents;
             this.contentTexture = contentTexture;
-            this.corkTextPos = capi.BlockTextureAtlas.GetPosition(flask, "topper");
-            this.blockTextPos = capi.BlockTextureAtlas.GetPosition(flask, "glass");
-            this.bracingTextPos = capi.BlockTextureAtlas.GetPosition(flask, "bracing");
+            this.corkTextPos = capi.BlockTextureAtlas.GetPosition(flask, "handle");
+            this.blockTextPos = capi.BlockTextureAtlas.GetPosition(flask, "quartz");
+            this.bracingTextPos = capi.BlockTextureAtlas.GetPosition(flask, "quartzglass");
         }
 
         public TextureAtlasPosition this[string textureCode]
         {
             get
             {
-                if (textureCode == "topper" && corkTextPos != null) return corkTextPos;
-                if (textureCode == "glass" && blockTextPos != null) return blockTextPos;
-                if (textureCode == "bracing" && bracingTextPos != null) return bracingTextPos;
+                if (textureCode == "handle" && corkTextPos != null) return corkTextPos;
+                if (textureCode == "quartz" && blockTextPos != null) return blockTextPos;
+                if (textureCode == "quartzglass" && bracingTextPos != null) return bracingTextPos;
                 if (contentTextPos == null)
                 {
                     int textureSubId;

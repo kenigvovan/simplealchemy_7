@@ -176,6 +176,7 @@ namespace simplealchemy.src
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
             dsc.AppendLine(Lang.Get("\n"));
+            return;
             if(potionId.Equals("walkspeedtypepotion"))
             {
                 dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", statChange > 0? "+" + statChange * tier * 100: "-" + statChange, "walkspeed"));
