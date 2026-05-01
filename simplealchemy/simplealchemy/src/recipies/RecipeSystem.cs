@@ -57,7 +57,7 @@ namespace simplealchemy.src.recipies
             }
         }
 
-        public class PotionCauldronRecipeLoader : RecipeLoader
+        public class PotionCauldronRecipeLoader : ModSystem
         {
             /*public List<PotionCauldronRecipe> PotionCauldronRecipes
             {

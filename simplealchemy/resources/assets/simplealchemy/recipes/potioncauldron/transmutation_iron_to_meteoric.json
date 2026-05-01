@@ -1,0 +1,36 @@
+[
+  {
+    "code": "transmutation-iron-to-meteoric",
+    "minTemperature": 1100,
+    "maxTemperature": 1500,
+    "preparationTicks": 300,
+    "minCauldronTier": 4,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:spiritpotionbased",
+        "litres": 2
+      },
+      {
+        "type": "item",
+        "code": "game:ingot-iron",
+        "quantity": 8
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-cinnabar",
+        "quantity": 4
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "game:ingot-meteoriciron",
+      "quantity": 1
+    }
+  }
+]

@@ -91,15 +91,15 @@
 		"*-iron": {
 			"side02": { "base": "simplealchemy:block/cauldron/side02" },
 			"front": { "base": "simplealchemy:block/cauldron/front" },
-			"metal": { "base": "simplealchemy:block/cauldron/castiron" },
-			"metal2": { "base": "game:block/metal/sheet/gold1" },
+			"metal": { "base": "game:block/metal/sheet/iron1" },
+			"metal2": { "base": "game:block/metal/sheet/iron1" },
 			"metaldark": {
-				"base": "simplealchemy:block/cauldron/castiron",
-				"overlays": [ "simplealchemy:block/cauldron/metaloverlay" ]
+				"base": "game:block/metal/sheet/iron1",
+				"overlays": [ "block/cauldron/metaloverlay" ]
 			},
 			"metalgradient": {
-				"base": "simplealchemy:block/cauldron/castiron",
-				"overlays": [ "simplealchemy:block/cauldron/metaloverlaygradient" ]
+				"base": "game:block/metal/sheet/iron1",
+				"overlays": [ "block/cauldron/metaloverlaygradient" ]
 			}
 		},
 		"*-steel": {

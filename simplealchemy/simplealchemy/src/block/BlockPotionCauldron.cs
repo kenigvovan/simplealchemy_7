@@ -155,20 +155,13 @@ namespace simplealchemy.src
                     {
                 new WorldInteraction()
                 {
-                    ActionLangCode = "game:blockhelp-behavior-rightclickpickup",
-                    MouseButton = EnumMouseButton.Right,
-                    RequireFreeHand = true
-                },
-                new WorldInteraction()
-                {
                     ActionLangCode = "blockhelp-bucket-rightclick",
                     MouseButton = EnumMouseButton.Right,
                     Itemstacks = liquidContainerStacks.ToArray()
                 },
                 new WorldInteraction()
                 {
-                    ActionLangCode = "simplealchemy:blockhelp-lid", // json lang file. 
-                    HotKeyCodes = new string[] { "sneak", "sprint" },
+                    ActionLangCode = "simplealchemy:blockhelp-open-cauldron",
                     MouseButton = EnumMouseButton.Right
                 }
             };
@@ -448,54 +441,6 @@ namespace simplealchemy.src
             //var c = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible.CombustibleProps;
             BlockPos pos = blockSel.Position;
 
-            ItemStack stack = byPlayer.InventoryManager.ActiveHotbarSlot?.Itemstack;
-            if (byPlayer.Entity.ServerControls.Sprint)
-            {
-                if (byPlayer.Entity.ServerControls.Sneak)
-                {
-
-                    if (sp.fuelStack != null)
-                    {
-
-                        if (!byPlayer.InventoryManager.TryGiveItemstack(sp.fuelStack))
-                        {
-                            world.SpawnItemEntity(sp.fuelStack, byPlayer.Entity.ServerPos.XYZ);
-                        }
-                        sp.fuelStack = null;
-                        return true;
-                    }
-
-                }
-                else if (stack != null && byPlayer.Entity.ServerControls.Sprint && sp != null && stack.Collectible.CombustibleProps != null && stack.Collectible.CombustibleProps.BurnTemperature > 0)
-                {
-                    if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Collectible.CombustibleProps.BurnDuration > 0)
-                    {
-                        ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Right, 0, EnumMergePriority.DirectMerge, 1);
-                        byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(sp.fuelSlot, ref op);
-                        if (op.MovedQuantity > 0)
-                        {
-                            (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-                            return true;
-                        }
-                    }
-                }
-
-
-            }
-
-            /* if (byPlayer.WorldData.EntityControls.Sneak && byPlayer.WorldData.EntityControls.Sprint)
-             {
-                 if (sp != null && Attributes.IsTrue("canSeal"))
-                 {
-                     world.PlaySoundAt(AssetLocation.Create(Attributes["lidSound"].AsString("sounds/block"), Code.Domain), pos.X + 0.5f, pos.Y + 0.5f, pos.Z + 0.5f, byPlayer);
-                     sp.isSealed = !sp.isSealed;
-                     sp.RedoMesh();
-                     sp.MarkDirty(true);
-                 }
-
-                 return true;
-             }*/
-
             if (sp?.isSealed == true) return false;
             ItemSlot hotbarSlot = byPlayer.InventoryManager.ActiveHotbarSlot;
 
@@ -561,86 +506,11 @@ namespace simplealchemy.src
                     }
                 }
             }
-            if (byPlayer.Entity.ServerControls.Sneak)
+            if (world.Side == EnumAppSide.Client && sp != null)
             {
-                for (int i = sp.Inventory.Count - 1; i >= sp.firstIngredientSlot; i--)
-                {
-                    //ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Button1, 0, EnumMergePriority.DirectMerge, 1);
-                    if (sp.Inventory[i].Itemstack == null)
-                    {
-                        continue;
-                    }
-
-                    if (!byPlayer.InventoryManager.TryGiveItemstack(sp.Inventory[i].Itemstack))
-                    {
-                        world.SpawnItemEntity(sp.Inventory[i].Itemstack, byPlayer.Entity.ServerPos.XYZ);
-                    }
-                    sp.Inventory[i].Itemstack = null;
-                    sp.Inventory[i].MarkDirty();
-                    return true;
-
-                }
+                sp.OpenDialog((byPlayer as IClientPlayer));
             }
-            else
-            {
-                if (!byPlayer.InventoryManager.ActiveHotbarSlot.Empty)
-                {
-                    AssetLocation tmpObjectCode;
-                    if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Block != null)
-                    {
-                        tmpObjectCode = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Block.Code;
-                    }
-                    else if (byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Item != null)
-                    {
-                        tmpObjectCode = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Item.Code;
-                    }
-                    else
-                    {
-                        return false;
-                    }
-                    if (Config.Current.allowedIngredientsGroupsItems.Val.ContainsKey(tmpObjectCode.Domain))
-                    {
-                        foreach (var pref in (Config.Current.allowedIngredientsGroupsItems.Val[tmpObjectCode.Domain]))
-                        {
-                            if (tmpObjectCode.Path.StartsWith(pref))
-                            {
-                                for (int i = sp.firstIngredientSlot; i < sp.Inventory.Count; i++)
-                                {
-                                    //var p = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Block.Code.ToString();
-                                    ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Right, 0, EnumMergePriority.DirectMerge, 1);
-                                    byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(sp.Inventory[i], ref op);
-                                    if (op.MovedQuantity > 0)
-                                    {
-                                        (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-                                        return true;
-                                    }
-                                }
-                                return false;
-                            }
-                        }
-                    }
-                    if (Config.Current.allowedIngredientsItems.Val.ContainsKey(tmpObjectCode.Domain))
-                    {
-                        if (Config.Current.allowedIngredientsItems.Val[tmpObjectCode.Domain].Contains(tmpObjectCode.Path))
-                        {
-                            for (int i = sp.firstIngredientSlot; i < sp.Inventory.Count; i++)
-                            {
-                                //var p = byPlayer.InventoryManager.ActiveHotbarSlot.Itemstack.Block.Code.ToString();
-                                ItemStackMoveOperation op = new ItemStackMoveOperation(byPlayer.Entity.World, EnumMouseButton.Right, 0, EnumMergePriority.DirectMerge, 1);
-                                byPlayer.InventoryManager.ActiveHotbarSlot.TryPutInto(sp.Inventory[i], ref op);
-                                if (op.MovedQuantity > 0)
-                                {
-                                    (byPlayer as IClientPlayer)?.TriggerFpAnimation(EnumHandInteract.HeldItemInteract);
-                                    return true;
-                                }
-                            }
-                            return false;
-                        }
-                    }
-                }
-            }
-            return false;
-            //return base.OnBlockInteractStart(world, byPlayer, blockSel);
+            return true;
         }
 
         public override void OnHeldInteractStart(ItemSlot itemslot, EntityAgent byEntity, BlockSelection blockSel, EntitySelection entitySel, bool firstEvent, ref EnumHandHandling handHandling)
@@ -1101,7 +971,7 @@ namespace simplealchemy.src
                     world.SpawnItemEntity(drops[i], new Vec3d(pos.X + 0.5, pos.Y + 0.5, pos.Z + 0.5), null);
                 }
 
-                world.PlaySoundAt(Sounds.GetBreakSound(byPlayer), pos.X, pos.Y, pos.Z, byPlayer);
+                world.PlaySoundAt(Sounds.GetBreakSound(byPlayer), pos, 0.5, byPlayer);
             }
 
             if (EntityClass != null)
@@ -1162,7 +1032,7 @@ namespace simplealchemy.src
 
                 foreach (CraftingRecipeIngredient ing in Ingredients)
                 {
-                    if ((ing.ResolvedItemstack == null && !ing.IsWildCard) || matched.Contains(ing) || !ing.SatisfiesAsIngredient(input)) continue;
+                    if ((ing.ResolvedItemStack == null && !ing.IsWildCard) || matched.Contains(ing) || !ing.SatisfiesAsIngredient(input)) continue;
                     match = ing;
                     break;
                 }

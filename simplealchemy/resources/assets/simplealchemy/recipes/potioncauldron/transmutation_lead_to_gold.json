@@ -1,0 +1,37 @@
+[
+  {
+    "code": "transmutation-lead-to-gold",
+    "minTemperature": 800,
+    "maxTemperature": 950,
+    "preparationTicks": 200,
+    "minCauldronTier": 4,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:spiritpotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "game:ingot-lead",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-cinnabar",
+        "quantity": 4
+      },
+      {
+        "type": "item",
+        "code": "game:metalbit-gold",
+        "quantity": 1,
+        "consumeQuantity": 0
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "game:metalbit-gold",
+      "quantity": 9
+    }
+  }
+]

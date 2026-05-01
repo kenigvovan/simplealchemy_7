@@ -1,4 +1,5 @@
 ﻿using HarmonyLib;
+using simplealchemy.src.gui;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,16 @@ namespace simplealchemy.src
     [HarmonyPatch]
     public class harmPatches
     {
+        /// <summary>
+        /// Prefix on PlayerInventoryManager.DropMouseSlotItems: while the ImGui cauldron grid is active,
+        /// suppress the engine's "drop the mouse-held stack into the world" behaviour, so clicks inside
+        /// the dialog don't eject the item onto the floor.
+        /// </summary>
+        public static bool Prefix_DropMouseSlotItems()
+        {
+            return !ImGuiInventoryGrid.SuppressMouseDrop;
+        }
+
         public static bool Postfix_GetHeldItemInfo(Vintagestory.API.Common.CollectibleObject __instance, ItemSlot inSlot,
        StringBuilder dsc,
        IWorldAccessor world,

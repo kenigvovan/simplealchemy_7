@@ -52,7 +52,7 @@ namespace simplealchemy.src
 
         public Part<Dictionary<string, HashSet<string>>> allowedIngredientsGroupsItems = new Part<Dictionary<string, HashSet<string>>>(new Dictionary<string, HashSet<string>>()
         {
-            {"game", new HashSet<string>(){ "mushroom-", "crushed-", "flower-", "treeseed-", "vegetable-", "fruit-", "cheese-", "flour-", "metalbit-", "ingot-" } },
+            {"game", new HashSet<string>(){ "mushroom-", "crushed-", "flower-", "treeseed-", "vegetable-", "fruit-", "cheese-", "flour-", "metalbit-", "ingot-", "nugget-" } },
             {"simplealchemy", new HashSet<string>() { "herbingredient-", "mushroomingredient-" } },
             {"em", new HashSet<string>() { "crushed-" } }
 

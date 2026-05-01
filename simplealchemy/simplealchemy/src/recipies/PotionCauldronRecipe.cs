@@ -13,7 +13,7 @@ using Vintagestory.GameContent;
 namespace simplealchemy.src.recipies
 {
     [ProtoContract]
-    public class PotionCauldronRecipe : IByteSerializable, IRecipeBase<PotionCauldronRecipe>
+    public class PotionCauldronRecipe : IByteSerializable
     {
         // Token: 0x17000018 RID: 24
         // (get) Token: 0x06000071 RID: 113 RVA: 0x00007EA5 File Offset: 0x000060A5
@@ -26,28 +26,6 @@ namespace simplealchemy.src.recipies
         // (set) Token: 0x06000074 RID: 116 RVA: 0x00007EBE File Offset: 0x000060BE
         [ProtoMember(2)]
         public bool Enabled { get; set; } = true;
-
-        // Token: 0x1700001A RID: 26
-        // (get) Token: 0x06000075 RID: 117 RVA: 0x00007EC8 File Offset: 0x000060C8
-       
-        IRecipeIngredient[] IRecipeBase<PotionCauldronRecipe>.Ingredients
-        {
-            get
-            {
-                return this.Ingredients;
-            }
-        }
-
-        // Token: 0x1700001B RID: 27
-        // (get) Token: 0x06000076 RID: 118 RVA: 0x00007EDD File Offset: 0x000060DD
-        
-        IRecipeOutput IRecipeBase<PotionCauldronRecipe>.Output
-        {
-            get
-            {
-                return this.Output;
-            }
-        }
 
         // Token: 0x06000077 RID: 119 RVA: 0x00007EE8 File Offset: 0x000060E8
         public bool Matches(ItemSlot[] inputSlots, out int outputStackSize)
@@ -387,7 +365,7 @@ namespace simplealchemy.src.recipies
                 bool flag3 = flag2;
                 if (flag3)
                 {
-                    WaterTightContainableProps containableProps = BlockLiquidContainerBase.GetContainableProps(potionCauldronRecipeIngredient.ResolvedItemstack);
+                    WaterTightContainableProps containableProps = BlockLiquidContainerBase.GetContainableProps(potionCauldronRecipeIngredient.ResolvedItemStack);
                     bool flag4 = containableProps != null;
                     if (flag4)
                     {

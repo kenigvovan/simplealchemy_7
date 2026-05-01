@@ -26,6 +26,19 @@ namespace simplealchemy.src
         public static List<PotionCauldronRecipe> potionCauldronRecipes;
         public static Harmony harmonyInstance;
         public const string harmonyID = "blacksmithname.Patches";
+
+        private ICoreClientAPI _capi;
+        private ItemIconAtlas _sharedAtlas;
+
+        /// <summary>
+        /// Lazily-created shared icon atlas for ImGui dialogs. Lifetime tied to ModSystem.Dispose.
+        /// </summary>
+        public ItemIconAtlas GetSharedIconAtlas()
+        {
+            if (_capi == null) return null;
+            if (_sharedAtlas == null) _sharedAtlas = new ItemIconAtlas(_capi);
+            return _sharedAtlas;
+        }
         public override void Start(ICoreAPI api)
         {
             base.Start(api);
@@ -42,6 +55,21 @@ namespace simplealchemy.src
         public override void StartClientSide(ICoreClientAPI api)
         {
             base.StartClientSide(api);
+            _capi = api;
+
+            harmonyInstance = new Harmony(harmonyID + "_client");
+            var dropMouseSlot = Type.GetType("Vintagestory.Common.PlayerInventoryManager, VintagestoryLib")
+                ?.GetMethod("DropMouseSlotItems");
+            if (dropMouseSlot != null)
+            {
+                harmonyInstance.Patch(
+                    dropMouseSlot,
+                    prefix: new HarmonyMethod(typeof(harmPatches).GetMethod(nameof(harmPatches.Prefix_DropMouseSlotItems))));
+            }
+            else
+            {
+                api.Logger.Warning("[simplealchemy] DropMouseSlotItems not found - cauldron dialog may drop items");
+            }
         }
         public override void StartServerSide(ICoreServerAPI api)
         {
@@ -82,7 +110,13 @@ namespace simplealchemy.src
 
         public override void Dispose()
         {
-            base.Dispose(); 
+            base.Dispose();
+            _sharedAtlas?.Dispose();
+            _sharedAtlas = null;
+            if (harmonyInstance != null)
+            {
+                harmonyInstance.UnpatchAll(harmonyID + "_client");
+            }
             if (lastPlayerClassChange != null && lastPlayerClassChange.Count != 0)
             {
                 sapi.WorldManager.SaveGame.StoreData<Dictionary<string, long>>("simplealchemylastPlayerClassChange", lastPlayerClassChange);

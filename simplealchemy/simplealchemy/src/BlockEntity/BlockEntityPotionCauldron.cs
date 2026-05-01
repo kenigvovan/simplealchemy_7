@@ -1,4 +1,6 @@
-﻿using simplealchemy.src.recipies;
+﻿using simplealchemy.src.gui;
+using simplealchemy.src.inventories;
+using simplealchemy.src.recipies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,11 +60,21 @@ namespace simplealchemy.src
         }
         public int cauldronTier = 0;
         public int lastFuelAmount = 0;
+        public string CurrentRecipeCode = "";
         Random prng;
+        public const int PacketIdOpenCauldron = 1100;
+        public const int PacketIdCloseCauldron = 1102;
+        public const int PacketIdIgnite = 1103;
+        private ImGuiDialogPotionCauldron clientDialog;
         public BlockEntityPotionCauldron()
         {
             //inventory = new InventoryGeneric(5, null, null);
-            this.inventory = new InventoryGeneric(6, (string)null, (ICoreAPI)null, (NewSlotDelegate)((id, self) => id == 0 ? (ItemSlot)new ItemSlotLiquidOnly((InventoryBase)self, 40f) : (ItemSlot)new ItemSlotUniversal((InventoryBase)self)));
+            this.inventory = new InventoryGeneric(6, (string)null, (ICoreAPI)null, (NewSlotDelegate)((id, self) =>
+            {
+                if (id == 0) return new ItemSlotLiquidOnly((InventoryBase)self, 40f);
+                if (id == 1) return new ItemSlotCauldronFuel((InventoryBase)self);
+                return new ItemSlotCauldronIngredient((InventoryBase)self);
+            }));
             this.inventory.SlotModified += new Action<int>(this.Inventory_SlotModified);
         }
         public override void Initialize(ICoreAPI api)
@@ -386,6 +398,7 @@ namespace simplealchemy.src
                 ((InventoryBase) this.inventory)[5]
             };
             this.CurrentRecipe = (PotionCauldronRecipe)null;
+            this.CurrentRecipeCode = "";
             foreach (PotionCauldronRecipe barrelRecipe in simplealchemy.potionCauldronRecipes)
             {
                 if (this.cauldronTier < barrelRecipe.MinCauldronTier)
@@ -403,6 +416,7 @@ namespace simplealchemy.src
                     if (barrelRecipe.PreparationTicks > 0.0)
                     {
                         this.CurrentRecipe = barrelRecipe;
+                        this.CurrentRecipeCode = barrelRecipe.Code ?? "";
                         //this.CurrentOutSize = outputStackSize;
                     }
                     else
@@ -566,6 +580,7 @@ namespace simplealchemy.src
             tree.SetBool("canIgniteFuel", canIgniteFuel);
             //tree.SetFloat("cachedFuel", cachedFuel);
             tree.SetInt("tickPassedForRecipe", ticksPassedForRecipe);
+            tree.SetString("currentRecipeCode", CurrentRecipeCode ?? "");
 
             base.ToTreeAttributes(tree);
 
@@ -590,6 +605,7 @@ namespace simplealchemy.src
             extinguishedTotalHours = tree.GetDouble("extinguishedTotalHours");
             canIgniteFuel = tree.GetBool("canIgniteFuel", true);
             ticksPassedForRecipe = tree.GetInt("tickPassedForRecipe");
+            CurrentRecipeCode = tree.GetString("currentRecipeCode", "");
             //cachedFuel = tree.GetFloat("cachedFuel", 0);
 
             /*if (Api?.Side == EnumAppSide.Client)
@@ -678,9 +694,72 @@ namespace simplealchemy.src
             if (packetid == 667)
             {
                 this.clientRegenMesh = true;
-                // this.currentRightMesh = GenRightMesh();
-                //this.MarkDirty(true);
             }
+        }
+
+        public override void OnReceivedClientPacket(IPlayer fromPlayer, int packetid, byte[] data)
+        {
+            base.OnReceivedClientPacket(fromPlayer, packetid, data);
+            if (packetid == PacketIdOpenCauldron)
+            {
+                fromPlayer.InventoryManager.OpenInventory(this.Inventory);
+                return;
+            }
+            if (packetid == PacketIdCloseCauldron)
+            {
+                fromPlayer.InventoryManager.CloseInventory(this.Inventory);
+                return;
+            }
+            if (packetid == PacketIdIgnite)
+            {
+                if (!IsBurning && fuelStack != null)
+                {
+                    canIgniteFuel = true;
+                    extinguishedTotalHours = Api.World.Calendar.TotalHours;
+                    MarkDirty(true);
+                }
+                return;
+            }
+
+            // BlockEntityLiquidContainer (and its parent BlockEntityContainer) don't route
+            // inventory slot-op packets to InvNetworkUtil; only BlockEntityOpenableContainer
+            // does. Without this, server discards client slot operations and pushes its
+            // unchanged state back, looking like a "rollback" in the dialog.
+            if (Api.World.Claims.TryAccess(fromPlayer, Pos, EnumBlockAccessFlags.Use))
+            {
+                Inventory.InvNetworkUtil.HandleClientPacket(fromPlayer, packetid, data);
+                Api.World.BlockAccessor.GetChunkAtBlockPos(Pos)?.MarkModified();
+            }
+        }
+
+        public void OpenDialog(IClientPlayer player)
+        {
+            if (Api?.Side != EnumAppSide.Client) return;
+            var capi = (ICoreClientAPI)Api;
+
+            if (clientDialog != null && clientDialog.IsOpen) return;
+
+            clientDialog?.Dispose();
+            clientDialog = new ImGuiDialogPotionCauldron(capi, this);
+            clientDialog.Open();
+            capi.Network.SendBlockEntityPacket(Pos.X, Pos.Y, Pos.Z, PacketIdOpenCauldron);
+        }
+
+        public void OnDialogClosed()
+        {
+            if (Api?.Side != EnumAppSide.Client) return;
+            var capi = (ICoreClientAPI)Api;
+            capi.Network.SendBlockEntityPacket(Pos.X, Pos.Y, Pos.Z, PacketIdCloseCauldron);
+        }
+
+        public PotionCauldronRecipe ResolveCurrentRecipe()
+        {
+            if (string.IsNullOrEmpty(CurrentRecipeCode)) return null;
+            foreach (var rec in simplealchemy.potionCauldronRecipes)
+            {
+                if (rec.Code == CurrentRecipeCode) return rec;
+            }
+            return null;
         }
         public override bool OnTesselation(ITerrainMeshPool mesher, ITesselatorAPI tesselator)
         {

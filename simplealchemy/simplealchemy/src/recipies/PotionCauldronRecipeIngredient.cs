@@ -26,8 +26,8 @@ namespace simplealchemy.src.recipies
             potionCauldronRecipeIngredient.Litres = this.Litres;
             potionCauldronRecipeIngredient.AllowedVariants = ((this.AllowedVariants == null) ? null : ((string[])this.AllowedVariants.Clone()));
             CraftingRecipeIngredient craftingRecipeIngredient = potionCauldronRecipeIngredient;
-            ItemStack resolvedItemstack = this.ResolvedItemstack;
-            craftingRecipeIngredient.ResolvedItemstack = ((resolvedItemstack != null) ? resolvedItemstack.Clone() : null);
+            ItemStack resolvedItemstack = this.ResolvedItemStack;
+            craftingRecipeIngredient.ResolvedItemStack = ((resolvedItemstack != null) ? resolvedItemstack.Clone() : null);
             CraftingRecipeIngredient craftingRecipeIngredient2 = potionCauldronRecipeIngredient;
             JsonItemStack returnedStack = this.ReturnedStack;
             craftingRecipeIngredient2.ReturnedStack = ((returnedStack != null) ? returnedStack.Clone() : null);

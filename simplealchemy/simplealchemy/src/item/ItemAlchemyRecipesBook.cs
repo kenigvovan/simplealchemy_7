@@ -25,17 +25,8 @@ namespace simplealchemy.src.item
 
             if (this.api.Side == EnumAppSide.Client)
             {
-                GuiDialogAlchemyRecipesBook dlg = new GuiDialogAlchemyRecipesBook(slot.Itemstack, this.api as ICoreClientAPI);
-                /*dlg.OnClosed += delegate ()
-                {
-                    if (dlg.DidSave)
-                    {
-                        this.bookModSys.EndEdit(player, dlg.AllPagesText, dlg.Title, dlg.DidSign);
-                        return;
-                    }
-                    this.bookModSys.CancelEdit(player);
-                };*/
-                dlg.TryOpen();
+                var dlg = new ImGuiDialogAlchemyRecipesBook(this.api as ICoreClientAPI);
+                dlg.Open();
             }
             handling = EnumHandHandling.PreventDefault;
             return;
