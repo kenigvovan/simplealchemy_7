@@ -175,23 +175,27 @@ namespace simplealchemy.src
 
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
         {
-            dsc.AppendLine(Lang.Get("\n"));
-            return;
+            base.GetHeldItemInfo(inSlot, dsc, world, withDebugInfo);
+            if (string.IsNullOrEmpty(potionId)) return;
+
+            string pct = FormatPercent(statChange * tier);
+            string regen = statChange.ToString("0.##");
+
             if(potionId.Equals("walkspeedtypepotion"))
             {
-                dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", statChange > 0? "+" + statChange * tier * 100: "-" + statChange, "walkspeed"));
+                dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", pct, Lang.Get("simplealchemy:walkspeed")));
             }
             else if (potionId.Equals("miningspeedtypepotion"))
             {
-                dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", statChange > 0 ? "+" + statChange * tier * 100 : "-" + statChange, "mining_speed"));
+                dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", pct, Lang.Get("simplealchemy:mining_speed")));
             }
             else if (potionId.Equals("regenerationtypepotion"))
             {
-                dsc.AppendLine(Lang.Get("simplealchemy:regen_hp_per_tick", statChange));
+                dsc.AppendLine(Lang.Get("simplealchemy:regen_hp_per_tick", regen));
             }
             else if (potionId.Equals("meleetypepotion"))
             {
-                dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", statChange > 0 ? "+" + statChange * tier * 100 : "-" + statChange, "melee_attack"));
+                dsc.AppendLine(Lang.Get("simplealchemy:stat_change_by_percents", pct, Lang.Get("simplealchemy:melee_attack")));
             }
             else if (potionId.Equals("temporalstabilityrestore"))
             {
@@ -202,7 +206,35 @@ namespace simplealchemy.src
                 dsc.AppendLine(Lang.Get("simplealchemy:forgetting_potion_desc"));
             }
 
-            dsc.AppendLine(Lang.Get("simplealchemy:duration_sec", duration));
+            else if (potionId.Equals("poison"))
+            {
+                dsc.AppendLine(Lang.Get("simplealchemy:poison_potion_desc"));
+            }
+            else if (potionId.Equals("walkslow"))
+            {
+                dsc.AppendLine(Lang.Get("simplealchemy:walkslow_potion_desc"));
+            }
+            else if (potionId.Equals("weakmelee"))
+            {
+                dsc.AppendLine(Lang.Get("simplealchemy:weakmelee_potion_desc"));
+            }
+            else if (potionId.Equals("firedamageimmune"))
+            {
+                dsc.AppendLine(Lang.Get("simplealchemy:firedmgimmune_potion_desc"));
+            }
+            else if (potionId.Equals("antidote"))
+            {
+                dsc.AppendLine(Lang.Get("simplealchemy:antidote_potion_desc_tier" + tier));
+            }
+
+            if (duration > 0) dsc.AppendLine(Lang.Get("simplealchemy:duration_sec", duration));
+        }
+
+        private static string FormatPercent(float v)
+        {
+            float pct = v * 100;
+            string sign = pct > 0 ? "+" : "";
+            return sign + pct.ToString("0.#");
 
         }
     }

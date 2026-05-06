@@ -1,0 +1,104 @@
+[
+  {
+    "code": "antidote-weak",
+    "minTemperature": 300,
+    "maxTemperature": 900,
+    "preparationTicks": 30,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:honeypotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-almondmushroom-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-woad-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:salt",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-antidote-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "antidote-medium",
+    "minTemperature": 600,
+    "maxTemperature": 1000,
+    "preparationTicks": 50,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-antidote-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-fieldmushroom-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-cowparsley-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:salt",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-antidote-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "antidote-strong",
+    "minTemperature": 900,
+    "maxTemperature": 1200,
+    "preparationTicks": 65,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-antidote-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-reishi-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-catmint-dried",
+        "quantity": 3
+      },
+      {
+        "type": "item",
+        "code": "game:beeswax",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-antidote-strong",
+      "litres": 1
+    }
+  }
+]

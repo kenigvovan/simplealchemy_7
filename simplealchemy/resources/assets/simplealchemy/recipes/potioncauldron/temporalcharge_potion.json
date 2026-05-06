@@ -1,6 +1,6 @@
-﻿[
+[
   {
-    "code": "temporalstabilityrestore-weak",
+    "code": "temporalcharge-weak",
     "minTemperature": 300,
     "maxTemperature": 900,
     "preparationTicks": 30,
@@ -14,7 +14,7 @@
       {
         "type": "item",
         "code": "game:blastingpowder",
-        "quantity": 6
+        "quantity": 4
       },
       {
         "type": "item",
@@ -23,18 +23,18 @@
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-redtopgrass-dried",
+        "code": "simplealchemy:herbingredient-catmint-dried",
         "quantity": 2
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-weak",
+      "code": "simplealchemy:potionportion-temporalcharge-weak",
       "litres": 1
     }
   },
   {
-    "code": "temporalstabilityrestore-medium",
+    "code": "temporalcharge-medium",
     "minTemperature": 300,
     "maxTemperature": 800,
     "preparationTicks": 50,
@@ -42,7 +42,7 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:potionportion-temporalstabilityrestore-weak",
+        "code": "simplealchemy:potionportion-temporalcharge-weak",
         "litres": 1
       },
       {
@@ -52,28 +52,28 @@
       },
       {
         "type": "item",
-        "code": "game:cattailroot",
+        "code": "game:metalbit-copper",
         "quantity": 4
       },
       {
         "type": "item",
-        "code": "game:metalbit-tin",
+        "code": "simplealchemy:mushroomingredient-jackolantern-dried",
         "quantity": 2
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-wilddaisy-dried",
+        "code": "simplealchemy:herbingredient-horsetail-dried",
         "quantity": 2
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-medium",
+      "code": "simplealchemy:potionportion-temporalcharge-medium",
       "litres": 1
     }
   },
   {
-    "code": "temporalstabilityrestore-strong",
+    "code": "temporalcharge-strong",
     "minTemperature": 300,
     "maxTemperature": 650,
     "preparationTicks": 70,
@@ -81,7 +81,7 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:potionportion-temporalstabilityrestore-medium",
+        "code": "simplealchemy:potionportion-temporalcharge-medium",
         "litres": 1
       },
       {
@@ -96,18 +96,18 @@
       },
       {
         "type": "item",
-        "code": "game:rot",
-        "litres": 10
+        "code": "simplealchemy:mushroomingredient-flyagaric-dried",
+        "quantity": 2
       },
       {
         "type": "item",
-        "code": "game:treeseed-larch",
-        "quantity": 1
+        "code": "game:blastingpowder",
+        "quantity": 4
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-strong",
+      "code": "simplealchemy:potionportion-temporalcharge-strong",
       "litres": 1
     }
   }

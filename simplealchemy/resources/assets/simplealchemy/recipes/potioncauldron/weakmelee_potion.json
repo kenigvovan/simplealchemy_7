@@ -1,0 +1,104 @@
+[
+  {
+    "code": "weakmelee-weak",
+    "minTemperature": 300,
+    "maxTemperature": 900,
+    "preparationTicks": 35,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:spiritpotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-devilbolete-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-westerngorse-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-galena",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-weakmelee-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "weakmelee-medium",
+    "minTemperature": 700,
+    "maxTemperature": 1100,
+    "preparationTicks": 55,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-weakmelee-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-elfinsaddle-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-cowparsley-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-galena",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-weakmelee-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "weakmelee-strong",
+    "minTemperature": 1000,
+    "maxTemperature": 1300,
+    "preparationTicks": 75,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-weakmelee-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-devilstooth-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-westerngorse-dried",
+        "quantity": 3
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-weakmelee-strong",
+      "litres": 1
+    }
+  }
+]

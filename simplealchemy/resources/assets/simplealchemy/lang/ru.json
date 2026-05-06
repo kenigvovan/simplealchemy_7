@@ -23,8 +23,48 @@
   "simplealchemy:recipebook-cat-transmutation": "Трансмутация",
   "simplealchemy:recipebook-cat-base": "Основы",
   "simplealchemy:recipebook-cat-potion": "Зелья",
+  "simplealchemy:recipebook-cat-coating": "Покрытия оружия",
+  "simplealchemy:recipebook-coating-chance": "Шанс при ударе: {0}%%",
+  "simplealchemy:recipebook-coating-charges": "Зарядов: {0}",
+  "simplealchemy:recipebook-tab-recipes": "Рецепты",
+  "simplealchemy:recipebook-tab-guide": "Азы",
+
+  "simplealchemy:guide-ingredients-title": "Ингредиенты",
+  "simplealchemy:guide-ingredients-1": "Травы: используйте ножницы на цветке чтобы получить сырой растительный ингредиент.",
+  "simplealchemy:guide-ingredients-2": "Грибы: используйте ножницы на грибе чтобы получить сырой грибной ингредиент.",
+  "simplealchemy:guide-ingredients-3": "Сырые ингредиенты со временем превращаются в сушёные. Рецепты требуют именно сушёные.",
+
+  "simplealchemy:guide-bases-title": "Основы зелий",
+  "simplealchemy:guide-bases-1": "Каждое зелье начинается с жидкой основы. Есть три вида: Водная основа, Медовая основа и Спиртовая основа.",
+  "simplealchemy:guide-bases-2": "Основы варятся в котле из воды, мёда или алкоголя в сочетании с травами.",
+  "simplealchemy:guide-bases-3": "Спиртовая основа нужна для дебаффных покрытий (яд, замедление, слабость). Медовая и Водная - для зелий улучшений.",
+
+  "simplealchemy:guide-cauldron-title": "Котёл",
+  "simplealchemy:guide-cauldron-1": "Есть 4 уровня котла: Медный (1), Бронзовый (2), Железный (3), Стальной (4). Более сложные рецепты требуют котёл выше уровнем.",
+  "simplealchemy:guide-cauldron-2": "Подложите топливо под котёл и подожгите. Котёл должен достичь температурного окна рецепта.",
+  "simplealchemy:guide-cauldron-3": "Когда температура в нужном диапазоне, варка идёт. Примерно 1 тик в секунду.",
+  "simplealchemy:guide-cauldron-4": "Если температура выйдет за верхний предел, варка провалится. Следите за огнём.",
+
+  "simplealchemy:guide-flasks-title": "Фляги",
+  "simplealchemy:guide-flasks-1": "Скрафтите флягу и перелейте сваренное зелье из котла во флягу.",
+  "simplealchemy:guide-flasks-2": "ПКМ с флягой в руке, чтобы выпить зелье. Каждый литр - одна доза.",
+
+  "simplealchemy:guide-firedmgimmune-title": "Огнестойкость",
+  "simplealchemy:guide-firedmgimmune-1": "Зелье огнестойкости даёт полный иммунитет к урону от огня на время действия.",
+  "simplealchemy:guide-firedmgimmune-2": "Варится из гриба Рейши и вереска с ледником в качестве хладагента. Более сильные тиры действуют дольше.",
+
+  "simplealchemy:guide-antidote-title": "Антидот",
+  "simplealchemy:guide-antidote-1": "Антидот мгновенно снимает активные дебаффы, наложенные покрытым оружием.",
+  "simplealchemy:guide-antidote-2": "Слабый снимает яд. Средний также снимает замедление. Сильный убирает все три: яд, замедление и слабость.",
+  "simplealchemy:guide-antidote-3": "Варится из гриба Миндального и вайды с солью. Более сильные тиры требуют лучший котёл.",
+
+  "simplealchemy:guide-coating-title": "Покрытие оружия",
+  "simplealchemy:guide-coating-1": "Зелья яда, замедления и слабости можно наносить на оружие ближнего боя.",
+  "simplealchemy:guide-coating-2": "ПКМ флягой с зельем покрытия на оружие в инвентаре, чтобы нанести покрытие.",
+  "simplealchemy:guide-coating-3": "У каждого покрытия ограниченное число зарядов и шанс сработать при ударе. Чем выше тир зелья, тем выше шанс.",
   "simplealchemy:transmutation-lead-to-gold": "Трансмутация: свинец в золото",
   "simplealchemy:transmutation-iron-to-meteoric": "Трансмутация: железо в метеоритное",
+  "simplealchemy:recipebook-effect": "Эффект",
 
   "simplealchemy:incontainer-item-potionportion-meleestrength-weak": "Зелье силы (слабое)",
   "simplealchemy:incontainer-item-potionportion-miningspeed-weak": "Зелье скорости копания (слабое)",
@@ -45,6 +85,58 @@
   "simplealchemy:incontainer-item-potionportion-walkspeed-strong": "Зелье скорости передвижения (сильное)",
   "item-potionportion-temporalstabilityrestore-strong": "Зелья восстановления темпоральной стабильности (strong)",
   "item-potionportion-forgetting-strong": "Зелье забытия",
+
+  "simplealchemy:incontainer-item-potionportion-poison-weak": "Яд (слабый)",
+  "simplealchemy:incontainer-item-potionportion-poison-medium": "Яд (средний)",
+  "simplealchemy:incontainer-item-potionportion-poison-strong": "Яд (сильный)",
+
+  "simplealchemy:item-potionportion-poison-weak": "Яд (слабый)",
+  "simplealchemy:item-potionportion-poison-medium": "Яд (средний)",
+  "simplealchemy:item-potionportion-poison-strong": "Яд (сильный)",
+
+  "simplealchemy:incontainer-item-potionportion-firedamageimmune-weak": "Огнестойкость (слабая)",
+  "simplealchemy:incontainer-item-potionportion-firedamageimmune-medium": "Огнестойкость (средняя)",
+  "simplealchemy:incontainer-item-potionportion-firedamageimmune-strong": "Огнестойкость (сильная)",
+  "simplealchemy:item-potionportion-firedamageimmune-weak": "Зелье огнестойкости (слабое)",
+  "simplealchemy:item-potionportion-firedamageimmune-medium": "Зелье огнестойкости (среднее)",
+  "simplealchemy:item-potionportion-firedamageimmune-strong": "Зелье огнестойкости (сильное)",
+
+  "simplealchemy:incontainer-item-potionportion-antidote-weak": "Антидот (слабый)",
+  "simplealchemy:incontainer-item-potionportion-antidote-medium": "Антидот (средний)",
+  "simplealchemy:incontainer-item-potionportion-antidote-strong": "Антидот (сильный)",
+  "simplealchemy:item-potionportion-antidote-weak": "Антидот (слабый)",
+  "simplealchemy:item-potionportion-antidote-medium": "Антидот (средний)",
+  "simplealchemy:item-potionportion-antidote-strong": "Антидот (сильный)",
+
+  "simplealchemy:incontainer-item-potionportion-walkslow-weak": "Замедление (слабое)",
+  "simplealchemy:incontainer-item-potionportion-walkslow-medium": "Замедление (среднее)",
+  "simplealchemy:incontainer-item-potionportion-walkslow-strong": "Замедление (сильное)",
+  "simplealchemy:item-potionportion-walkslow-weak": "Зелье замедления (слабое)",
+  "simplealchemy:item-potionportion-walkslow-medium": "Зелье замедления (среднее)",
+  "simplealchemy:item-potionportion-walkslow-strong": "Зелье замедления (сильное)",
+
+  "simplealchemy:incontainer-item-potionportion-weakmelee-weak": "Слабость (слабая)",
+  "simplealchemy:incontainer-item-potionportion-weakmelee-medium": "Слабость (средняя)",
+  "simplealchemy:incontainer-item-potionportion-weakmelee-strong": "Слабость (сильная)",
+  "simplealchemy:item-potionportion-weakmelee-weak": "Зелье слабости (слабое)",
+  "simplealchemy:item-potionportion-weakmelee-medium": "Зелье слабости (среднее)",
+  "simplealchemy:item-potionportion-weakmelee-strong": "Зелье слабости (сильное)",
+
+  "poison-weak": "Яд, слабый",
+  "poison-medium": "Яд, средний",
+  "poison-strong": "Яд, сильный",
+
+  "simplealchemy:poison_potion_desc": "ПКМ по оружию в инвентаре чтобы нанести яд. Опасно для употребления.",
+  "simplealchemy:walkslow_potion_desc": "ПКМ по оружию в инвентаре чтобы нанести замедление.",
+  "simplealchemy:weakmelee_potion_desc": "ПКМ по оружию в инвентаре чтобы нанести слабость.",
+  "simplealchemy:firedmgimmune_potion_desc": "Даёт иммунитет к урону от огня.",
+  "simplealchemy:antidote_potion_desc_tier1": "Снимает яд.",
+  "simplealchemy:antidote_potion_desc_tier2": "Снимает яд и замедление.",
+  "simplealchemy:antidote_potion_desc_tier3": "Снимает яд, замедление и слабость.",
+  "simplealchemy:weapon_coated_with_poison": "Оружие покрыто ядом.",
+  "simplealchemy:weapon_poisoned_charges": "Отравлено ({0} зарядов)",
+  "simplealchemy:weapon_walkslow_charges": "Замедлено ({0} зарядов)",
+  "simplealchemy:weapon_weakmelee_charges": "Ослаблено ({0} зарядов)",
 
 
 
@@ -203,8 +295,6 @@
   "item-herbingredient-minerslettuce-raw": "Нарезанный шахтерский салат",
   "item-herbingredient-mugwort-raw": "Нарезанная полынь",
   "item-herbingredient-burdock-raw": "Нарезанный лопух",
-  "item-herbingredient-poisonoak-raw": "Нарезанный ядовитый дуб",
-  "item-herbingredient-holly-raw": "Нарезанный падуб",
   "item-herbingredient-chicory-raw": "Нарезанный цикорий",
   "item-herbingredient-marigold-raw": "Нарезанная календула ",
   "item-herbingredient-inula-raw": "Нарезанный девясил",
@@ -256,8 +346,6 @@
   "item-herbingredient-minerslettuce-dried": "Сушеный шахтерский салат",
   "item-herbingredient-mugwort-dried": "Сушеная полынь",
   "item-herbingredient-burdock-dried": "Сушеный лопух",
-  "item-herbingredient-poisonoak-dried": "Сушеный ядовитый дуб",
-  "item-herbingredient-holly-dried": "Сушеный падуб",
   "item-herbingredient-chicory-dried": "Сушеный цикорий",
   "item-herbingredient-marigold-dried": "Сушеная календула",
   "item-herbingredient-inula-dried": "Сушеный девясил",
@@ -303,6 +391,38 @@
   "temporalstabilityrestore-weak": "Зелья восстановления темпоральной стабильности, слабое",
   "temporalstabilityrestore-medium": "Зелья восстановления темпоральной стабильности, среднее",
   "temporalstabilityrestore-strong": "Зелья восстановления темпоральной стабильности, сильное",
+
+  "temporalcharge-weak": "Зелье темпорального заряда, слабое",
+  "temporalcharge-medium": "Зелье темпорального заряда, среднее",
+  "temporalcharge-strong": "Зелье темпорального заряда, сильное",
+
+  "thorns-weak": "Зелье шипов, слабое",
+  "thorns-medium": "Зелье шипов, среднее",
+  "thorns-strong": "Зелье шипов, сильное",
+
+  "invisibility-weak": "Зелье невидимости, слабое",
+  "invisibility-medium": "Зелье невидимости, среднее",
+  "invisibility-strong": "Зелье невидимости, сильное",
+
+  "safefall-weak": "Зелье безопасного падения, слабое",
+  "safefall-medium": "Зелье безопасного падения, среднее",
+  "safefall-strong": "Зелье безопасного падения, сильное",
+
+  "item-potionportion-temporalcharge-weak": "Зелье темпорального заряда (слабое)",
+  "item-potionportion-temporalcharge-medium": "Зелье темпорального заряда (среднее)",
+  "item-potionportion-temporalcharge-strong": "Зелье темпорального заряда (сильное)",
+
+  "item-potionportion-thorns-weak": "Зелье шипов (слабое)",
+  "item-potionportion-thorns-medium": "Зелье шипов (среднее)",
+  "item-potionportion-thorns-strong": "Зелье шипов (сильное)",
+
+  "item-potionportion-invisibility-weak": "Зелье невидимости (слабое)",
+  "item-potionportion-invisibility-medium": "Зелье невидимости (среднее)",
+  "item-potionportion-invisibility-strong": "Зелье невидимости (сильное)",
+
+  "item-potionportion-safefall-weak": "Зелье безопасного падения (слабое)",
+  "item-potionportion-safefall-medium": "Зелье безопасного падения (среднее)",
+  "item-potionportion-safefall-strong": "Зелье безопасного падения (сильное)",
 
   "cauldron_level_gui": "Минимальный уровень котла: {0}",
   "min_max_temp_recipe": "Температура: {0} / {1}",

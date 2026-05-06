@@ -25,6 +25,7 @@ namespace simplealchemy.src
         public static Dictionary<string, long> lastPlayerClassChange;
         public static List<PotionCauldronRecipe> potionCauldronRecipes;
         public static Harmony harmonyInstance;
+        private static Harmony harmonyServerInstance;
         public const string harmonyID = "blacksmithname.Patches";
 
         private ICoreClientAPI _capi;
@@ -48,6 +49,7 @@ namespace simplealchemy.src
             api.RegisterItemClass("ItemAlchemyRecipesBook", typeof(ItemAlchemyRecipesBook));
             api.RegisterBlockClass("BlockPotionCauldron", typeof(BlockPotionCauldron));
             api.RegisterBlockEntityClass("BlockEntityPotionCauldron", typeof(BlockEntityPotionCauldron));
+            api.RegisterCollectibleBehaviorClass("PoisonCoatable", typeof(PoisonCoatableCB));
             //harmonyInstance = new Harmony(harmonyID);
             //harmonyInstance.Patch(typeof(Vintagestory.API.Common.CollectibleObject).GetMethod("GetHeldItemInfo"), prefix: new HarmonyMethod(typeof(harmPatches).GetMethod("Postfix_GetHeldItemInfo")));
 
@@ -71,11 +73,37 @@ namespace simplealchemy.src
                 api.Logger.Warning("[simplealchemy] DropMouseSlotItems not found - cauldron dialog may drop items");
             }
         }
+        public override void AssetsFinalize(ICoreAPI api)
+        {
+            base.AssetsFinalize(api);
+            string[] weaponKeywords = { "spear", "falx", "blade", "sword", "mace", "club" };
+            foreach (var item in api.World.Items)
+            {
+                if (item?.Code == null) continue;
+                string path = item.Code.Path;
+                if (weaponKeywords.Any(kw => path.Contains(kw)) && !item.HasBehavior<PoisonCoatableCB>())
+                    item.CollectibleBehaviors = item.CollectibleBehaviors.Append(new PoisonCoatableCB(item)).ToArray();
+            }
+        }
+
         public override void StartServerSide(ICoreServerAPI api)
         {
             base.StartServerSide(api);
             sapi = api;
             loadConfig();
+
+            harmonyServerInstance = new Harmony(harmonyID + "_server");
+            var attackMethod = typeof(Vintagestory.API.Common.CollectibleObject).GetMethod(
+                "OnAttackingWith",
+                new System.Type[] {
+                    typeof(IWorldAccessor),
+                    typeof(Vintagestory.API.Common.Entities.Entity),
+                    typeof(Vintagestory.API.Common.Entities.Entity),
+                    typeof(ItemSlot)
+                });
+            if (attackMethod != null)
+                harmonyServerInstance.Patch(attackMethod,
+                    postfix: new HarmonyMethod(typeof(harmPatches).GetMethod(nameof(harmPatches.Postfix_OnAttackingWith))));
 
             var s = sapi.WorldManager.SaveGame.GetData<Dictionary<string, long>>("simplealchemylastPlayerClassChange");
             if (s != null)
@@ -117,6 +145,7 @@ namespace simplealchemy.src
             {
                 harmonyInstance.UnpatchAll(harmonyID + "_client");
             }
+            harmonyServerInstance?.UnpatchAll(harmonyID + "_server");
             if (lastPlayerClassChange != null && lastPlayerClassChange.Count != 0)
             {
                 sapi.WorldManager.SaveGame.StoreData<Dictionary<string, long>>("simplealchemylastPlayerClassChange", lastPlayerClassChange);

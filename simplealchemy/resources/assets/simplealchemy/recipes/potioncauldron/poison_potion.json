@@ -1,0 +1,104 @@
+[
+  {
+    "code": "poison-weak",
+    "minTemperature": 300,
+    "maxTemperature": 900,
+    "preparationTicks": 35,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:spiritpotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-flyagaric-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-goldenpoppy-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-galena",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-poison-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "poison-medium",
+    "minTemperature": 700,
+    "maxTemperature": 1100,
+    "preparationTicks": 55,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-poison-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-deathcap-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-lilyofthevalley-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-galena",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-poison-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "poison-strong",
+    "minTemperature": 1000,
+    "maxTemperature": 1300,
+    "preparationTicks": 75,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-poison-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-funeralbell-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-goldenpoppy-dried",
+        "quantity": 3
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-poison-strong",
+      "litres": 1
+    }
+  }
+]

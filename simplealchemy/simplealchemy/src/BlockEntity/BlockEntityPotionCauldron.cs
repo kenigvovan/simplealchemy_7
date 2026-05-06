@@ -104,27 +104,19 @@ namespace simplealchemy.src
                 this.currentRightMesh = this.GenRightMesh();
                 this.MarkDirty(true);
             }
+            // Tier is derived from block code on both sides so the client dialog
+            // can show the right material name without a server sync.
+            string codePath = this.ownBlock?.Code?.Path ?? "";
+            if (codePath.Contains("copper")) this.cauldronTier = 1;
+            else if (codePath.Contains("tinbronze") || codePath.Contains("blackbronze")) this.cauldronTier = 2;
+            else if (codePath.Contains("steel")) this.cauldronTier = 4;
+            else if (codePath.Contains("iron") || codePath.Contains("meteoriciron")) this.cauldronTier = 3;
+
             if (api.Side == EnumAppSide.Server)
             {
                 this.RegisterGameTickListener(new Action<float>(this.OnEvery3Second), 3000);
                 RegisterGameTickListener(OnBurnTick, 100);
                 RegisterGameTickListener(On1000msTick, 1000);
-                if (this.ownBlock.Code.Path.Contains("copper"))
-                {
-                    this.cauldronTier = 1;
-                }
-                else if (this.ownBlock.Code.Path.Contains("tinbronze") || this.ownBlock.Code.Path.Contains("blackbronze"))
-                {
-                    this.cauldronTier = 2;
-                }
-                else if (this.ownBlock.Code.Path.Contains("iron") || this.ownBlock.Code.Path.Contains("meteoriciron"))
-                {
-                    this.cauldronTier = 3;
-                }
-                else if (this.ownBlock.Code.Path.Contains("steel"))
-                {
-                    this.cauldronTier = 4;
-                }
 
                 this.FindMatchingRecipe();
             }

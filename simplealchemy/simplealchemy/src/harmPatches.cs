@@ -1,4 +1,7 @@
-﻿using HarmonyLib;
+﻿using effectshud.src;
+using effectshud.src.DefaultEffects;
+using Effect = effectshud.src.Effect;
+using HarmonyLib;
 using simplealchemy.src.gui;
 using System;
 using System.Collections;
@@ -26,6 +29,74 @@ namespace simplealchemy.src
         public static bool Prefix_DropMouseSlotItems()
         {
             return !ImGuiInventoryGrid.SuppressMouseDrop;
+        }
+
+        // Called on server when a melee weapon connects with a target.
+        // Applies poison DoT to players (via effectshud) or flat damage to mobs (fallback until effectshud supports all entities).
+        public static void Postfix_OnAttackingWith(IWorldAccessor world, Entity byEntity, Entity attackedEntity, ItemSlot itemslot)
+        {
+            if (world.Side != EnumAppSide.Server) return;
+            if (attackedEntity == null || itemslot?.Itemstack == null) return;
+
+            var tree = itemslot.Itemstack.Attributes.GetTreeAttribute("simplepoisoned");
+            if (tree == null) return;
+
+            int charges = tree.GetInt("charges");
+            if (charges <= 0)
+            {
+                itemslot.Itemstack.Attributes.RemoveAttribute("simplepoisoned");
+                itemslot.MarkDirty();
+                return;
+            }
+
+            int tier = tree.GetInt("tier", 1);
+            string potionId = tree.GetString("potionId", "poison");
+
+            float chance = Math.Min(Config.Current.weaponCoatingChancePerTier.Val * tier, 1f);
+            if (world.Rand.NextDouble() > chance)
+            {
+                tree.SetInt("charges", charges - 1);
+                itemslot.MarkDirty();
+                return;
+            }
+
+            Effect eff;
+            switch (potionId)
+            {
+                case "walkslow":
+                    var walkSlow = new WalkSlowEffect();
+                    walkSlow.Tier = tier;
+                    walkSlow.SetExpiryInRealSeconds(20 + tier * 10);
+                    eff = walkSlow;
+                    break;
+                case "weakmelee":
+                    var weakMelee = new WeakMeleeEffect();
+                    weakMelee.Tier = tier;
+                    weakMelee.SetExpiryInRealSeconds(20 + tier * 10);
+                    eff = weakMelee;
+                    break;
+                default:
+                    var poison = new PoisonEffect();
+                    poison.Tier = tier;
+                    poison.SetExpiryInRealSeconds(15 + tier * 10);
+                    eff = poison;
+                    break;
+            }
+
+            bool applied = effectshud.src.effectshud.ApplyEffectOnEntity(attackedEntity, eff);
+            if (!applied && potionId == "poison")
+            {
+                // Fallback for mobs without EBEffectsAffected — flat bonus damage.
+                // TODO: remove once effectshud supports all entity types.
+                attackedEntity.ReceiveDamage(new Vintagestory.API.Common.DamageSource
+                {
+                    Source = Vintagestory.API.Common.EnumDamageSource.Internal,
+                    Type = Vintagestory.API.Common.EnumDamageType.Poison
+                }, tier * 2f);
+            }
+
+            tree.SetInt("charges", charges - 1);
+            itemslot.MarkDirty();
         }
 
         public static bool Postfix_GetHeldItemInfo(Vintagestory.API.Common.CollectibleObject __instance, ItemSlot inSlot,

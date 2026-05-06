@@ -59,6 +59,7 @@ namespace simplealchemy.src
         });
         public Part<bool> forgetingPotionWorks = new Part<bool>(false);
         public Part<long> daysBetweenClassChangeWithPotion = new Part<long>(180);
+        public Part<float> weaponCoatingChancePerTier = new Part<float>(0.25f, "Chance to apply coating effect per tier. Tier 1 = value, Tier 2 = value*2, Tier 3 = value*3. Range: 0.0-1.0");
 
     }
 }

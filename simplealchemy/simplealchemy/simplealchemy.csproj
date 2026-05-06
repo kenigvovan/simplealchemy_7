@@ -12,7 +12,7 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="effectshud">
-      <HintPath>..\..\..\libs\effectshud.dll</HintPath>
+      <HintPath>..\..\..\libs\1.22\effectshud.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="ImGui.NET">

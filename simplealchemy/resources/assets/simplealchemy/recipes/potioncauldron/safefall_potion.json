@@ -1,6 +1,6 @@
-﻿[
+[
   {
-    "code": "temporalstabilityrestore-weak",
+    "code": "safefall-weak",
     "minTemperature": 300,
     "maxTemperature": 900,
     "preparationTicks": 30,
@@ -8,33 +8,33 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:spiritpotionbased",
+        "code": "simplealchemy:honeypotionbased",
         "litres": 1
       },
       {
         "type": "item",
-        "code": "game:blastingpowder",
-        "quantity": 6
+        "code": "game:feather",
+        "quantity": 8
       },
       {
         "type": "item",
-        "code": "game:beeswax",
-        "quantity": 2
+        "code": "game:cattailroot",
+        "quantity": 4
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-redtopgrass-dried",
+        "code": "simplealchemy:herbingredient-goldenpoppy-dried",
         "quantity": 2
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-weak",
+      "code": "simplealchemy:potionportion-safefall-weak",
       "litres": 1
     }
   },
   {
-    "code": "temporalstabilityrestore-medium",
+    "code": "safefall-medium",
     "minTemperature": 300,
     "maxTemperature": 800,
     "preparationTicks": 50,
@@ -42,7 +42,7 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:potionportion-temporalstabilityrestore-weak",
+        "code": "simplealchemy:potionportion-safefall-weak",
         "litres": 1
       },
       {
@@ -52,12 +52,12 @@
       },
       {
         "type": "item",
-        "code": "game:cattailroot",
-        "quantity": 4
+        "code": "game:feather",
+        "quantity": 6
       },
       {
-        "type": "item",
-        "code": "game:metalbit-tin",
+        "type": "block",
+        "code": "game:glacierice",
         "quantity": 2
       },
       {
@@ -68,12 +68,12 @@
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-medium",
+      "code": "simplealchemy:potionportion-safefall-medium",
       "litres": 1
     }
   },
   {
-    "code": "temporalstabilityrestore-strong",
+    "code": "safefall-strong",
     "minTemperature": 300,
     "maxTemperature": 650,
     "preparationTicks": 70,
@@ -81,7 +81,7 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:potionportion-temporalstabilityrestore-medium",
+        "code": "simplealchemy:potionportion-safefall-medium",
         "litres": 1
       },
       {
@@ -91,23 +91,23 @@
       },
       {
         "type": "item",
-        "code": "game:crushed-cinnabar",
+        "code": "game:feather",
+        "quantity": 6
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-edelweiss-dried",
         "quantity": 2
       },
       {
         "type": "item",
-        "code": "game:rot",
-        "litres": 10
-      },
-      {
-        "type": "item",
-        "code": "game:treeseed-larch",
-        "quantity": 1
+        "code": "game:papyrusroot",
+        "quantity": 4
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-strong",
+      "code": "simplealchemy:potionportion-safefall-strong",
       "litres": 1
     }
   }

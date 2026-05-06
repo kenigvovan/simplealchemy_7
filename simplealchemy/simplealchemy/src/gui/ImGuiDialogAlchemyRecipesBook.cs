@@ -103,32 +103,157 @@ namespace simplealchemy.src.gui
             }
             return q
                 .OrderBy(r => CategoryOrder(r))
-                .ThenBy(r => RecipeDisplayName(r), StringComparer.OrdinalIgnoreCase)
+                .ThenBy(r => RecipeBaseName(r), StringComparer.OrdinalIgnoreCase)
+                .ThenBy(r => StrengthOrder(r))
                 .ToList();
         }
+
+        private static string RecipeBaseName(PotionCauldronRecipe rec)
+        {
+            string code = rec.Code ?? "";
+            foreach (string suffix in new[] { "-weak", "-medium", "-strong" })
+                if (code.EndsWith(suffix)) return code.Substring(0, code.Length - suffix.Length);
+            return code;
+        }
+
+        private static int StrengthOrder(PotionCauldronRecipe rec)
+        {
+            string code = (rec.Code ?? "").ToLowerInvariant();
+            if (code.EndsWith("-weak"))   return 0;
+            if (code.EndsWith("-medium")) return 1;
+            if (code.EndsWith("-strong")) return 2;
+            return 0;
+        }
+
+        private static readonly System.Collections.Generic.HashSet<string> CoatingPrefixes = new()
+        {
+            "poison", "walkslow", "weakmelee"
+        };
+
+        private static bool IsCoating(string code) =>
+            CoatingPrefixes.Any(p => code.StartsWith(p));
 
         private static int CategoryOrder(PotionCauldronRecipe rec)
         {
             string code = (rec.Code ?? "").ToLowerInvariant();
             if (code.Contains("base") || code.Contains("based")) return 0;
-            if (code.StartsWith("transmutation")) return 2;
+            if (IsCoating(code)) return 2;
+            if (code.StartsWith("transmutation")) return 3;
             return 1;
         }
 
         private void DrawContent()
         {
-            float listW = 280f;
-            float availH = ImGui.GetContentRegionAvail().Y;
+            if (!ImGui.BeginTabBar("##alchemybook_tabs")) return;
 
-            ImGui.BeginGroup();
-            DrawList(listW, availH);
-            ImGui.EndGroup();
+            if (ImGui.BeginTabItem(Lang.Get("simplealchemy:recipebook-tab-recipes")))
+            {
+                float listW = 280f;
+                float availH = ImGui.GetContentRegionAvail().Y - ImGui.GetFrameHeightWithSpacing();
 
-            ImGui.SameLine();
+                ImGui.BeginGroup();
+                DrawList(listW, availH);
+                ImGui.EndGroup();
 
-            ImGui.BeginGroup();
-            DrawDetails(availH);
-            ImGui.EndGroup();
+                ImGui.SameLine();
+
+                ImGui.BeginGroup();
+                DrawDetails(availH);
+                ImGui.EndGroup();
+
+                ImGui.EndTabItem();
+            }
+
+            if (ImGui.BeginTabItem(Lang.Get("simplealchemy:recipebook-tab-guide")))
+            {
+                DrawGuide();
+                ImGui.EndTabItem();
+            }
+
+            ImGui.EndTabBar();
+        }
+
+        private void DrawGuide()
+        {
+            float availH = ImGui.GetContentRegionAvail().Y - ImGui.GetFrameHeightWithSpacing();
+            ImGui.BeginChild("##guidescroll", new Vector2(0, availH), false);
+
+            DrawGuideSection("simplealchemy:guide-ingredients-title", new[]
+            {
+                "simplealchemy:guide-ingredients-1",
+                "simplealchemy:guide-ingredients-2",
+                "simplealchemy:guide-ingredients-3",
+            });
+
+            DrawGuideSection("simplealchemy:guide-bases-title", new[]
+            {
+                "simplealchemy:guide-bases-1",
+                "simplealchemy:guide-bases-2",
+                "simplealchemy:guide-bases-3",
+            });
+
+            DrawGuideSection("simplealchemy:guide-cauldron-title", new[]
+            {
+                "simplealchemy:guide-cauldron-1",
+                "simplealchemy:guide-cauldron-2",
+                "simplealchemy:guide-cauldron-3",
+                "simplealchemy:guide-cauldron-4",
+            });
+
+            DrawGuideSection("simplealchemy:guide-flasks-title", new[]
+            {
+                "simplealchemy:guide-flasks-1",
+                "simplealchemy:guide-flasks-2",
+            });
+
+            DrawGuideSection("simplealchemy:guide-coating-title", new[]
+            {
+                "simplealchemy:guide-coating-1",
+                "simplealchemy:guide-coating-2",
+                "simplealchemy:guide-coating-3",
+            });
+
+            DrawGuideSection("simplealchemy:guide-firedmgimmune-title", new[]
+            {
+                "simplealchemy:guide-firedmgimmune-1",
+                "simplealchemy:guide-firedmgimmune-2",
+            });
+
+            DrawGuideSection("simplealchemy:guide-antidote-title", new[]
+            {
+                "simplealchemy:guide-antidote-1",
+                "simplealchemy:guide-antidote-2",
+                "simplealchemy:guide-antidote-3",
+            });
+
+            ImGui.EndChild();
+        }
+
+        private void DrawGuideSection(string titleKey, string[] lineKeys)
+        {
+            ImGui.Spacing();
+            ImGui.Spacing();
+            ImGui.Spacing();
+
+            ImGui.TextColored(Col_Header, Lang.Get(titleKey));
+            ImGui.PushStyleColor(ImGuiCol.Separator, Col_Gold);
+            ImGui.Separator();
+            ImGui.PopStyleColor();
+            ImGui.Spacing();
+
+            ImGui.Indent(8f);
+            foreach (var key in lineKeys)
+            {
+                ImGui.Bullet();
+                ImGui.SameLine();
+                ImGui.PushStyleColor(ImGuiCol.Text, Col_Gold);
+                ImGui.PushTextWrapPos(0f);
+                ImGui.TextWrapped(Lang.Get(key));
+                ImGui.PopTextWrapPos();
+                ImGui.PopStyleColor();
+                ImGui.Spacing();
+            }
+            ImGui.Unindent(8f);
         }
 
         private void DrawList(float w, float h)
@@ -189,7 +314,7 @@ namespace simplealchemy.src.gui
             ImGui.Separator();
             ImGui.Spacing();
 
-            ImGui.TextColored(Col_Gold, Lang.Get("simplealchemy:cauldron_level_gui", rec.MinCauldronTier));
+            DrawCauldronTierLine(rec.MinCauldronTier);
             ImGui.TextColored(Col_Gold, Lang.Get("simplealchemy:min_max_temp_recipe", rec.MinTemperature, rec.MaxTemperature));
             ImGui.TextColored(Col_Dim, Lang.Get("simplealchemy:recipebook-prep-ticks", rec.PreparationTicks));
 
@@ -213,16 +338,106 @@ namespace simplealchemy.src.gui
 
             DrawOutputRow(rec, sz);
 
+            DrawEffectInfo(rec);
+
             ImGui.EndChild();
+        }
+
+        private void DrawCauldronTierLine(int tier)
+        {
+            float iconSz = ImGui.GetTextLineHeight() + 4f;
+            Vector2 pos = ImGui.GetCursorScreenPos();
+            var dl = ImGui.GetWindowDrawList();
+
+            var stack = GetCauldronStack(tier);
+            if (stack != null)
+            {
+                _atlas.DrawToList(stack, pos, new Vector2(iconSz, iconSz), dl);
+                ImGui.SetCursorScreenPos(pos);
+                ImGui.InvisibleButton($"##cauldronicon{tier}", new Vector2(iconSz, iconSz));
+                ImGui.SameLine(0, 6f);
+            }
+            ImGui.TextColored(Col_Gold, Lang.Get("simplealchemy:cauldron_level_gui", tier));
+        }
+
+        private ItemStack GetCauldronStack(int tier)
+        {
+            string mat = tier switch
+            {
+                1 => "copper",
+                2 => "tinbronze",
+                3 => "iron",
+                4 => "steel",
+                _ => null
+            };
+            if (mat == null) return null;
+            var block = _capi.World.GetBlock(new AssetLocation("simplealchemy", $"cauldron-{mat}"));
+            return block != null ? new ItemStack(block) : null;
+        }
+
+        private void DrawEffectInfo(PotionCauldronRecipe rec)
+        {
+            var output = rec.Output?.ResolvedItemstack;
+            if (output?.Collectible == null) return;
+
+            var potionInfo = output.Collectible.Attributes?["potioninfo"];
+            if (potionInfo == null || !potionInfo.Exists) return;
+
+            string potionId = potionInfo["potionId"].AsString("");
+            string strength = output.Collectible.Variant?["strength"] ?? "weak";
+            int duration = potionInfo["duration"][strength].AsInt(0);
+            float statChange = output.Collectible.Attributes["statChangeValue"].AsFloat(0);
+            int tier = strength switch { "strong" => 3, "medium" => 2, _ => 1 };
+
+            string line = potionId switch
+            {
+                "walkspeedtypepotion" => Lang.Get("simplealchemy:stat_change_by_percents",
+                    FormatPercent(statChange * tier), Lang.Get("simplealchemy:walkspeed")),
+                "miningspeedtypepotion" => Lang.Get("simplealchemy:stat_change_by_percents",
+                    FormatPercent(statChange * tier), Lang.Get("simplealchemy:mining_speed")),
+                "meleetypepotion" => Lang.Get("simplealchemy:stat_change_by_percents",
+                    FormatPercent(statChange * tier), Lang.Get("simplealchemy:melee_attack")),
+                "regenerationtypepotion" => Lang.Get("simplealchemy:regen_hp_per_tick", statChange.ToString("0.##")),
+                "temporalstabilityrestore" => Lang.Get("simplealchemy:restore_stability", tier * 30),
+                "forgetting"        => Lang.Get("simplealchemy:forgetting_potion_desc"),
+                "firedamageimmune"  => Lang.Get("simplealchemy:firedmgimmune_potion_desc"),
+                "antidote"          => Lang.Get("simplealchemy:antidote_potion_desc_tier" + tier),
+                "poison"            => Lang.Get("simplealchemy:poison_potion_desc"),
+                "walkslow"          => Lang.Get("simplealchemy:walkslow_potion_desc"),
+                "weakmelee"         => Lang.Get("simplealchemy:weakmelee_potion_desc"),
+                _ => null
+            };
+
+            if (line == null && duration <= 0) return;
+
+            ImGui.Spacing();
+            ImGui.Spacing();
+            ImGui.TextColored(Col_Header, Lang.Get("simplealchemy:recipebook-effect"));
+            ImGui.Spacing();
+
+            if (line != null) ImGui.TextColored(Col_Gold, line.Replace("%", "%%"));
+            if (duration > 0) ImGui.TextColored(Col_Dim, Lang.Get("simplealchemy:duration_sec", duration));
+
+            if (potionId == "poison" || potionId == "walkslow" || potionId == "weakmelee")
+            {
+                float chance = Math.Min(Config.Current.weaponCoatingChancePerTier.Val * tier, 1f) * 100f;
+                int charges = 3 + tier * 2;
+                ImGui.TextColored(Col_Dim, Lang.Get("simplealchemy:recipebook-coating-chance", (int)chance));
+                ImGui.TextColored(Col_Dim, Lang.Get("simplealchemy:recipebook-coating-charges", charges));
+            }
+        }
+
+        private static string FormatPercent(float v)
+        {
+            float pct = v * 100;
+            return (pct >= 0 ? "+" : "") + pct.ToString("0.#");
         }
 
         private void DrawIngredientRow(PotionCauldronRecipeIngredient ing, int sz)
         {
             ItemStack stack = BuildIngredientStack(ing);
             string label = stack?.GetName() ?? ing.Code?.ToShortString() ?? "?";
-            string qty = ing.Litres > 0
-                ? $"{ing.Litres:0.##} L"
-                : (ing.Quantity > 1 ? $"×{ing.Quantity}" : "");
+            string qty = LitresQty(ing.Litres, ing.Quantity, stack);
             if (ing.ConsumeQuantity == 0)
                 qty += "  " + Lang.Get("simplealchemy:recipebook-catalyst");
 
@@ -236,11 +451,24 @@ namespace simplealchemy.src.gui
             if (stack != null) stack.StackSize = Math.Max(output.Quantity, 1);
 
             string label = stack?.GetName() ?? rec.Code ?? "?";
-            string qty = output != null && output.Litres > 0
-                ? $"{output.Litres:0.##} L"
-                : (output?.Quantity > 1 ? $"×{output.Quantity}" : "");
+            string qty = output != null ? LitresQty(output.Litres, output.Quantity, stack) : "";
 
             DrawRow(stack, label, qty, sz);
+        }
+
+        private static string LitresQty(float litres, int quantity, ItemStack stack)
+        {
+            if (litres > 0f)
+                return $"{litres:0.##} L";
+
+            if (stack != null)
+            {
+                var props = BlockLiquidContainerBase.GetContainableProps(stack);
+                if (props != null && props.ItemsPerLitre > 0)
+                    return $"{quantity / props.ItemsPerLitre:0.##} L";
+            }
+
+            return quantity > 1 ? $"×{quantity}" : "";
         }
 
         private void DrawRow(ItemStack stack, string label, string qty, int sz)
@@ -324,8 +552,9 @@ namespace simplealchemy.src.gui
         private static string CategoryOf(PotionCauldronRecipe rec)
         {
             string code = (rec.Code ?? "").ToLowerInvariant();
-            if (code.StartsWith("transmutation")) return Lang.Get("simplealchemy:recipebook-cat-transmutation");
             if (code.Contains("base") || code.Contains("based")) return Lang.Get("simplealchemy:recipebook-cat-base");
+            if (IsCoating(code)) return Lang.Get("simplealchemy:recipebook-cat-coating");
+            if (code.StartsWith("transmutation")) return Lang.Get("simplealchemy:recipebook-cat-transmutation");
             return Lang.Get("simplealchemy:recipebook-cat-potion");
         }
     }

@@ -58,7 +58,7 @@
         "transitionHours": { "avg": 104 },
         "transitionedStack": {
           "type": "item",
-          "code": "simplealchemy:herbingredient-{flower}-dried"
+          "code": "simplealchemy:herbingredient-lupine-lupine-{color}-dried"
         },
         "transitionRatio": 1
       }

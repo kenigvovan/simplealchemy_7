@@ -1,6 +1,6 @@
-﻿[
+[
   {
-    "code": "temporalstabilityrestore-weak",
+    "code": "thorns-weak",
     "minTemperature": 300,
     "maxTemperature": 900,
     "preparationTicks": 30,
@@ -8,33 +8,33 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:spiritpotionbased",
+        "code": "simplealchemy:waterpotionbased",
         "litres": 1
       },
       {
         "type": "item",
-        "code": "game:blastingpowder",
-        "quantity": 6
+        "code": "game:flint",
+        "quantity": 4
       },
       {
         "type": "item",
-        "code": "game:beeswax",
-        "quantity": 2
+        "code": "simplealchemy:herbingredient-westerngorse-dried",
+        "quantity": 3
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-redtopgrass-dried",
+        "code": "simplealchemy:mushroomingredient-tinderhoof-dried",
         "quantity": 2
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-weak",
+      "code": "simplealchemy:potionportion-thorns-weak",
       "litres": 1
     }
   },
   {
-    "code": "temporalstabilityrestore-medium",
+    "code": "thorns-medium",
     "minTemperature": 300,
     "maxTemperature": 800,
     "preparationTicks": 50,
@@ -42,7 +42,7 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:potionportion-temporalstabilityrestore-weak",
+        "code": "simplealchemy:potionportion-thorns-weak",
         "litres": 1
       },
       {
@@ -52,28 +52,28 @@
       },
       {
         "type": "item",
-        "code": "game:cattailroot",
-        "quantity": 4
-      },
-      {
-        "type": "item",
-        "code": "game:metalbit-tin",
+        "code": "simplealchemy:herbingredient-heather-dried",
         "quantity": 2
       },
       {
         "type": "item",
-        "code": "simplealchemy:herbingredient-wilddaisy-dried",
-        "quantity": 2
+        "code": "simplealchemy:mushroomingredient-deathcap-dried",
+        "quantity": 1
+      },
+      {
+        "type": "item",
+        "code": "game:metalbit-iron",
+        "quantity": 3
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-medium",
+      "code": "simplealchemy:potionportion-thorns-medium",
       "litres": 1
     }
   },
   {
-    "code": "temporalstabilityrestore-strong",
+    "code": "thorns-strong",
     "minTemperature": 300,
     "maxTemperature": 650,
     "preparationTicks": 70,
@@ -81,7 +81,7 @@
     "ingredients": [
       {
         "type": "item",
-        "code": "simplealchemy:potionportion-temporalstabilityrestore-medium",
+        "code": "simplealchemy:potionportion-thorns-medium",
         "litres": 1
       },
       {
@@ -91,23 +91,23 @@
       },
       {
         "type": "item",
-        "code": "game:crushed-cinnabar",
+        "code": "simplealchemy:herbingredient-cornflower-dried",
         "quantity": 2
       },
       {
         "type": "item",
-        "code": "game:rot",
-        "litres": 10
+        "code": "simplealchemy:mushroomingredient-funeralbell-dried",
+        "quantity": 2
       },
       {
         "type": "item",
-        "code": "game:treeseed-larch",
-        "quantity": 1
+        "code": "game:metalbit-steel",
+        "quantity": 3
       }
     ],
     "output": {
       "type": "item",
-      "code": "simplealchemy:potionportion-temporalstabilityrestore-strong",
+      "code": "simplealchemy:potionportion-thorns-strong",
       "litres": 1
     }
   }

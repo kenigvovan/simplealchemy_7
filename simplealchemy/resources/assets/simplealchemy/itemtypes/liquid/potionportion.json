@@ -3,7 +3,7 @@
 	variantgroups: [
 		{
 			code: "potiontype",
-			states: [ "meleestrength", "miningspeed", "regeneration", "walkspeed", "temporalstabilityrestore", "forgetting", "temporalcharge", "canweightbuff", "extendedmaxbreath", "invisibility", "safefall", "thorns" ]
+			states: [ "meleestrength", "miningspeed", "regeneration", "walkspeed", "temporalstabilityrestore", "forgetting", "temporalcharge", "canweightbuff", "extendedmaxbreath", "invisibility", "safefall", "thorns", "poison", "walkslow", "weakmelee", "firedamageimmune", "antidote" ]
 		},
 		{ code: "strength", states: ["weak", "medium", "strong"] },
     ],
@@ -364,6 +364,124 @@
 				}
 			}
 		},
+		"*-firedamageimmune-*": {
+			"potioninfo": {
+				"potionId": "firedamageimmune",
+				"duration": {
+					"weak": 60,
+					"medium": 120,
+					"strong": 240
+				}
+			},
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/darkred_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-firedamageimmune-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-antidote-*": {
+			"potioninfo": {
+				"potionId": "antidote"
+			},
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/green_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-antidote-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-walkslow-*": {
+			"potioninfo": {
+				"potionId": "walkslow",
+				"duration": {
+					"weak": 30,
+					"medium": 45,
+					"strong": 60
+				}
+			},
+			"statChangeValue": 0.25,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/grey_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-walkslow-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-weakmelee-*": {
+			"potioninfo": {
+				"potionId": "weakmelee",
+				"duration": {
+					"weak": 30,
+					"medium": 45,
+					"strong": 60
+				}
+			},
+			"statChangeValue": 0.25,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/rose_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-weakmelee-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
+		"*-poison-*": {
+			"potioninfo": {
+				"potionId": "poison",
+				"duration": {
+					"weak": 15,
+					"medium": 25,
+					"strong": 40
+				}
+			},
+			"statChangeValue": 0.05,
+			"waterTightContainerProps": {
+				"containable": true,
+				"allowSpill": false,
+				"itemsPerLitre": 100,
+				"texture": { "base": "simplealchemy:item/potion/yellow_potion" },
+				"whenSpilled": {
+					"action": "DropContents",
+					"stack": {
+						"type": "item",
+						"code": "potionportion-poison-{strength}",
+						"states": [ "weak", "medium", "strong" ]
+					}
+				}
+			}
+		},
 		"*": {
 			"waterTightContainerProps": {
 				"containable": true,
@@ -420,6 +538,39 @@
 			},
 			"*-temporalstabilityrestore-*": {
 				"all": { "base": "simplealchemy:item/potion/indigo_potion" }
+			},
+			"*-temporalcharge-*": {
+				"all": { "base": "simplealchemy:item/potion/purple_potion" }
+			},
+			"*-invisibility-*": {
+				"all": { "base": "simplealchemy:item/potion/rose_potion" }
+			},
+			"*-safefall-*": {
+				"all": { "base": "simplealchemy:item/potion/black_potion" }
+			},
+			"*-thorns-*": {
+				"all": { "base": "simplealchemy:item/potion/green_potion" }
+			},
+			"*-poison-*": {
+				"all": { "base": "simplealchemy:item/potion/yellow_potion" }
+			},
+			"*-firedamageimmune-*": {
+				"all": { "base": "simplealchemy:item/potion/darkred_potion" }
+			},
+			"*-antidote-*": {
+				"all": { "base": "simplealchemy:item/potion/green_potion" }
+			},
+			"*-walkslow-*": {
+				"all": { "base": "simplealchemy:item/potion/grey_potion" }
+			},
+			"*-weakmelee-*": {
+				"all": { "base": "simplealchemy:item/potion/rose_potion" }
+			},
+			"*-canweightbuff-*": {
+				"all": { "base": "simplealchemy:item/potion/brown_potion" }
+			},
+			"*-extendedmaxbreath-*": {
+				"all": { "base": "simplealchemy:item/potion/turquoise_potion" }
 			}
 		},
 		"guiTransform": {

@@ -1,0 +1,104 @@
+[
+  {
+    "code": "walkslow-weak",
+    "minTemperature": 300,
+    "maxTemperature": 900,
+    "preparationTicks": 35,
+    "minCauldronTier": 1,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:spiritpotionbased",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-jackolantern-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-horsetail-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-galena",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkslow-weak",
+      "litres": 1
+    }
+  },
+  {
+    "code": "walkslow-medium",
+    "minTemperature": 700,
+    "maxTemperature": 1100,
+    "preparationTicks": 55,
+    "minCauldronTier": 2,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-walkslow-weak",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-violetwebcap-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-woad-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "game:crushed-galena",
+        "quantity": 2
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkslow-medium",
+      "litres": 1
+    }
+  },
+  {
+    "code": "walkslow-strong",
+    "minTemperature": 1000,
+    "maxTemperature": 1300,
+    "preparationTicks": 75,
+    "minCauldronTier": 3,
+    "ingredients": [
+      {
+        "type": "item",
+        "code": "simplealchemy:potionportion-walkslow-medium",
+        "litres": 1
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:mushroomingredient-witchhat-dried",
+        "quantity": 2
+      },
+      {
+        "type": "item",
+        "code": "simplealchemy:herbingredient-horsetail-dried",
+        "quantity": 3
+      },
+      {
+        "type": "item",
+        "code": "game:gear-temporal",
+        "quantity": 1
+      }
+    ],
+    "output": {
+      "type": "item",
+      "code": "simplealchemy:potionportion-walkslow-strong",
+      "litres": 1
+    }
+  }
+]

@@ -427,6 +427,45 @@ namespace simplesimplealchemy.src
                         //eff.statChangeValue = potionItem.statChange;
                         effectshud.src.effectshud.ApplyEffectOnEntity(byEntity, eff);
                     }
+                    else if (potionItem.potionId == "poison")
+                    {
+                        effectshud.src.DefaultEffects.PoisonEffect eff = new effectshud.src.DefaultEffects.PoisonEffect();
+                        eff.Tier = potionItem.tier;
+                        eff.SetExpiryInRealSeconds(potionItem.duration);
+                        effectshud.src.effectshud.ApplyEffectOnEntity(byEntity, eff);
+                    }
+                    else if (potionItem.potionId == "firedamageimmune")
+                    {
+                        effectshud.src.DefaultEffects.FireDamageImmuneEffect eff = new effectshud.src.DefaultEffects.FireDamageImmuneEffect();
+                        eff.Tier = potionItem.tier;
+                        eff.SetExpiryInRealSeconds(potionItem.duration);
+                        effectshud.src.effectshud.ApplyEffectOnEntity(byEntity, eff);
+                    }
+                    else if (potionItem.potionId == "antidote")
+                    {
+                        var ebea = byEntity.GetBehavior<effectshud.src.EBEffectsAffected>();
+                        if (ebea != null)
+                        {
+                            string[] debuffs = new[] {
+                                effectshud.src.EffectTypeIds.Poison,
+                                effectshud.src.EffectTypeIds.WalkSlow,
+                                effectshud.src.EffectTypeIds.WeakMelee
+                            };
+                            var removed = new System.Collections.Generic.HashSet<string>();
+                            int maxDebuffs = potionItem.tier; // weak=1 (poison), medium=2 (+walkslow), strong=3 (+weakmelee)
+                            for (int i = 0; i < maxDebuffs && i < debuffs.Length; i++)
+                            {
+                                if (ebea.activeEffects.TryGetValue(debuffs[i], out var activeEff))
+                                {
+                                    activeEff.OnExpire();
+                                    ebea.activeEffects.Remove(debuffs[i]);
+                                    removed.Add(debuffs[i]);
+                                }
+                            }
+                            if (removed.Count > 0)
+                                ebea.SendEffectToClient(null, removed);
+                        }
+                    }
                     //thorns
                     IPlayer player = null;
                     if (byEntity is EntityPlayer) player = byEntity.World.PlayerByUid(((EntityPlayer)byEntity).PlayerUID);
@@ -528,6 +567,19 @@ namespace simplesimplealchemy.src
 
                 return moved;
             }
+        }
+
+        public override string GetHeldItemName(ItemStack itemStack)
+        {
+            string baseName = base.GetHeldItemName(itemStack);
+            ItemStack content = GetContent(itemStack);
+            if (content != null)
+            {
+                string contentName = content.GetName();
+                if (!string.IsNullOrEmpty(contentName))
+                    return $"{baseName} ({contentName})";
+            }
+            return baseName;
         }
 
         public override void GetHeldItemInfo(ItemSlot inSlot, StringBuilder dsc, IWorldAccessor world, bool withDebugInfo)
